@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "https://sse.uni-hildesheim.de/qualitaet-plus/isum-isml-concept-recommender.schema.json",
+  "title": "Multiple Concept Maps Recommender Specification",
+  "description": "Specifies the JSON format for serializing a set of concept maps to JSON format",
+  "items": [
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "timestamp": {
+          "type": "integer"
+        },
+        "event": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "integer"
+        },
+        "conceptmap_id": {
+          "type": "integer"
+        },
+        "conceptmap_name": {
+          "type": "string"
+        },
+        "conceptmap_tags": {
+          "type": "array",
+          "items": {}
+        },
+        "concepts": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "timestamp": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "timestamp"
+              ]
+            }
+          ]
+        },
+        "recommender_concept": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "timestamp",
+        "event",
+        "user_id",
+        "conceptmap_id",
+        "conceptmap_name",
+        "conceptmap_tags",
+        "concepts",
+        "recommender_concept"
+      ]
+    }
+  ]
+}
