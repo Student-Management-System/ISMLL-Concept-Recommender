@@ -4,7 +4,7 @@ Web service recommender that suggests new concepts when students stuck while cre
 ## Prerequisites
 The following Python packages are required in order to run the service:
 
-```numpy pandas nltk gensim scipy lightfm scikit-optimize pickle-mixin pathlib```
+```numpy pandas nltk gensim scipy lightfm scikit-optimize pickle-mixin pathlib flask jsonschema```
 
 In addition:
 * `GoogleNews-vectors-negative300` is needed, which can be obtained from [here](https://www.kaggle.com/datasets/leadbest/googlenewsvectorsnegative300) (>3GB)

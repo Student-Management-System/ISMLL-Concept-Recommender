@@ -16,11 +16,12 @@ import gensim
 from scipy.sparse import csr_matrix
 #from IPython.display import display_html
 import warnings
+warnings.filterwarnings("ignore")
 
-#from lightfm.cross_validation import random_train_test_split
-#from lightfm.evaluation import auc_score, precision_at_k, recall_at_k
-#from lightfm import LightFM
-#from skopt import forest_minimize
+from lightfm.cross_validation import random_train_test_split
+from lightfm.evaluation import auc_score, precision_at_k, recall_at_k
+from lightfm import LightFM
+from skopt import forest_minimize
 
 # Moules needed for storing/loading local data
 import pickle
@@ -66,15 +67,16 @@ def do_training(concept_maps_as_json, service_name):
                       num_threads=16, verbose=False)
     
     # Save the models
-    Path(service_name).mkdir(parents=True, exist_ok=True)
-    store(model, "model", service_name)
-    store(conceptmap_concept_interaction, "conceptmap_concept_interaction", service_name)
-    store(concept_dict, "concept_dict", service_name)
-    store(item_dict, "item_dict", service_name)
-    store(books_metadata_csr, "books_metadata_csr", service_name)
+    folder = 'models/' + service_name
+    Path(folder).mkdir(parents=True, exist_ok=True)
+    store(model, "model", folder)
+    store(conceptmap_concept_interaction, "conceptmap_concept_interaction", folder)
+    store(concept_dict, "concept_dict", folder)
+    store(item_dict, "item_dict", folder)
+    store(books_metadata_csr, "books_metadata_csr", folder)
 
-def store(data, file_name, service_name):
-    with open(service_name + '/' + file_name, "wb") as outfile:
+def store(data, file_name, folder):
+    with open(folder + '/' + file_name, "wb") as outfile:
         # "wb" argument opens the file in binary mode
         pickle.dump(data, outfile)
 
