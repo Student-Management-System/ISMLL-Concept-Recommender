@@ -4,7 +4,7 @@ Web service recommender that suggests new concepts when students stuck while cre
 ## Prerequisites
 The following Python packages are required in order to run the service:
 
-```numpy pandas nltk gensim scipy lightfm scikit-optimize pickle-mixin pathlib flask jsonschema```
+```numpy pandas nltk gensim scipy lightfm scikit-optimize pickle-mixin pathlib flask jsonschema flask-restx```
 
 In addition:
 * `GoogleNews-vectors-negative300` is needed, which can be obtained from [here](https://www.kaggle.com/datasets/leadbest/googlenewsvectorsnegative300) (>3GB)
@@ -19,10 +19,10 @@ Even with this additional software, it's unlikely to install `lightfm` [see here
 The algorithm may be executed as Python script for development and testing purposes, as well as web service. The repository contains two scripts to execute the web service on Linux and Windows.
 
 ### Local Execution
-```python python Webservice.py```
+```python3 LocalExecution.py```
 
 You may edit and execute the following functions:
-* `do_training_without_webservice()` for testing the training endpoint
+* `LocalExecution.do_training()` for testing the training endpoint
 
 ### Web wervice (Linux)
 ```
@@ -34,7 +34,4 @@ chmod +x start.sh
 ```start.bat```
 
 ## Web Service / Endpoints
-The web service runs by default on Port 5000, but may be changed by the first parameter of the start scripts.
-The following endpoints are currently provided (Swagger documentation will follow):
-* GET: `concept_recommender/hello_world`: Demonstrates that the service is available / how to call a GET endpoint
-* POST: `/concept_recommender/train`: Expects an array of concept maps serialized in JSON to train the models.
+Open [http://localhost:5000](http://localhost:5000) for a list of available endbpoints.

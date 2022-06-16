@@ -1,9 +1,8 @@
 set PORT=5000
 
 echo "Starting Concept Map Recommener at %PORT%"
-echo "Enpoints are:"
-echo "  http://localhost:%PORT%/concept_recommender/hello_world"
-echo "  http://localhost:%PORT%/concept_recommender/train"
+echo "See for documentation: http://localhost:%PORT%/"
+
 
 set FLASK_APP=Webservice.py
 set FLASK_ENV=development
