@@ -13,18 +13,18 @@ app = Api(app = flask_app, version='0.1', title='ISMLL Concept Recommender', des
 ns = app.namespace('concept_recommender', description='Main APIs')
 
 request_schema = {
-    'type': 'object',
-    'properties': {
+    'type': 'array',
+    'items': {
         'list': {
             'type': 'array',
-            'items': {'type': 'string'},
+            'items': {'type': 'object'},
             'minItems': 1,
         },
     },
     'additionalProperties': False,
     'required': ['list'],
 }
-request_model = app.schema_model('test_list_request', request_schema)
+request_model = app.schema_model('Multiple Concept Maps Recommender Specification', request_schema)
 
 @ns.route('/hello_world')
 class Hello(Resource):
@@ -34,7 +34,7 @@ class Hello(Resource):
 @ns.route('/training/<string:model_id>')
 class Training(Resource):
     @ns.expect(request_model, validate=True)
-    def post(self, todo_id):
+    def post(self, model_id):
         if request.is_json:
             data = request.get_json()
             valid, msg = RecommenderAPI.validate_json(data, 'Multiple-Concept-Maps-Recommender.spec.json')
@@ -42,6 +42,6 @@ class Training(Resource):
             if not valid:
                 return {"Error": "JSON request does not represent Concept Map(s):\n" + msg}, 415 # 415 means Unsupported media type
 
-            RecommenderAPI.do_training(data, todo_id)
+            RecommenderAPI.do_training(data, model_id)
             return "Model updated", 201 # 201 means something was created
         return {"Error": "Request must be JSON"}, 415 # 415 means Unsupported media type
