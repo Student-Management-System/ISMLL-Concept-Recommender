@@ -15,16 +15,42 @@ ns = app.namespace('concept_recommender', description='Main APIs')
 request_schema = {
     'type': 'array',
     'items': {
-        'list': {
-            'type': 'array',
-            'items': {'type': 'object'},
-            'minItems': 1,
+        'type': 'object',
+        'properties': {
+            'id': {'type': 'integer'},
+            'timestamp': {'type': 'integer'},
+            'event': {'type': 'string'},
+            'user_id': {'type': 'integer'},
+            'conceptmap_id': {'type': 'integer'},
+            'conceptmap_name': {'type': ["integer","string"]},
+            'conceptmap_tags': {
+                'type': 'array',
+                'items': {
+                },
+            },
+            'concepts': {
+                'type': 'array',
+                'items': {
+                    'type': 'object',
+                        'properties': {
+                            'id': {'type': 'string'},
+                            'name': {'type': 'string'},
+                            'timestamp': {'type': 'string'},
+                        },
+                        'required': ['id', 'name', 'timestamp'],
+                },
+            },
+            'recommender_concept': {'type': 'string'},
         },
+        'required': ['id', 'timestamp', 'event', 'user_id', 'conceptmap_id', 'conceptmap_name', 'conceptmap_tags', 'concepts', 'recommender_concept'],
     },
     'additionalProperties': False,
     'required': ['list'],
 }
-request_model = app.schema_model('Multiple Concept Maps Recommender Specification', request_schema)
+
+
+
+training_dto = app.schema_model('Multiple Concept Maps DTO', request_schema)
 
 @ns.route('/hello_world')
 class Hello(Resource):
@@ -33,15 +59,11 @@ class Hello(Resource):
       
 @ns.route('/training/<string:model_id>')
 class Training(Resource):
-    @ns.expect(request_model, validate=True)
+    @ns.expect(training_dto, validate=True)
     def post(self, model_id):
         if request.is_json:
             data = request.get_json()
-            valid, msg = RecommenderAPI.validate_json(data, 'Multiple-Concept-Maps-Recommender.spec.json')
-
-            if not valid:
-                return {"Error": "JSON request does not represent Concept Map(s):\n" + msg}, 415 # 415 means Unsupported media type
-
+            
             RecommenderAPI.do_training(data, model_id)
             return "Model updated", 201 # 201 means something was created
         return {"Error": "Request must be JSON"}, 415 # 415 means Unsupported media type
