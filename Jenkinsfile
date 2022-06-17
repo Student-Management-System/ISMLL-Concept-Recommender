@@ -10,7 +10,7 @@ pipeline {
         stage('Git') {
             steps {
                 cleanWs()
-                git 'https://github.com/Student-Management-System/ISMLL-Concept-Recommender.git'
+                git branch: 'main', url: 'https://github.com/Student-Management-System/ISMLL-Concept-Recommender.git'
             }
         }
 
