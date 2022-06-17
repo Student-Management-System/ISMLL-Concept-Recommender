@@ -1,3 +1,4 @@
+#!/bin/bash
 PORT=5000
 
 echo "Starting Concept Map Recommener at $PORT"
