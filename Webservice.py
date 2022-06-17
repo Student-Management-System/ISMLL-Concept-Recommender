@@ -10,7 +10,7 @@ import RecommenderAPI
 
 flask_app = Flask(__name__)
 app = Api(app = flask_app, version='0.1', title='ISMLL Concept Recommender', description='Web service recommender that suggests new concepts when students stuck while creating a concept map.')
-ns = app.namespace('Concept Maps Recommender', prefix='concept_recommender', description='Main APIs')
+ns = app.namespace('Concept Maps Recommender', path='concept_recommender', description='Main APIs')
 
 request_schema = {
     'type': 'array',
