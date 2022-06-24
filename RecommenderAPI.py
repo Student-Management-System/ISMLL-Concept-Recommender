@@ -37,25 +37,9 @@ def display_side_by_side(*args):
 warnings.filterwarnings("ignore")
 
 
-
-
-
-
 def hello_world():
     return 'Hello, World!'
 
-def validate_json(json_data, spec):
-    with open(spec, 'r') as file:
-        api_schema = json.load(file)
-
-    try:
-        validate(instance=json_data, schema=api_schema)
-    except jsonschema.exceptions.ValidationError as err:
-        err = "Given JSON data is InValid"
-        return False, err
-
-    message = "Given JSON data is Valid"
-    return True, message
 
 PAD = 0
 MASK = 1
@@ -369,16 +353,3 @@ def convert_json_to_df(data):
     data = data.drop('conceptId', 1)
     data = data.rename(columns={'idx': 'conceptId'})
     return data
-
-
-def train():
-    if request.is_json:
-        data = request.get_json()
-        valid, msg = validate_json(data, 'Multiple-Concept-Maps-Recommender.spec.json')
-
-        if not valid:
-            return {"Error": "JSON request does not represent Concept Map(s):\n" + msg}, 415 # 415 means Unsupported media type
-
-        # Do further stuff with json data
-        return "Model updated", 201 # 201 means something was created
-    return {"Error": "Request must be JSON"}, 415 # 415 means Unsupported media type

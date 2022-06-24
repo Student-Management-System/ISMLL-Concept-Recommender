@@ -1,3 +1,17 @@
+import torch
+import numpy as np
+import pickle
+
+
+PAD = 0
+MASK = 1
+
+def do_prediction(student_map, service_name):
+    model = load('model', service_name)
+    concept_to_idx = load('concept_to_idx', service_name)
+    idx_to_concept = load('idx_to_concept', service_name)
+
+    return predict(student_map, model, concept_to_idx, idx_to_concept)
 
 
 def predict(student_map, model, concept_to_idx, idx_to_concept):
@@ -27,8 +41,11 @@ def predict(student_map, model, concept_to_idx, idx_to_concept):
     sorted_predicted_ids = [a for a in sorted_predicted_ids if a not in ids]
     
     return [idx_to_concept[a] for a in sorted_predicted_ids[:10] if a in idx_to_concept]
-    
+
+def load(file_name, folder):
+    with open('models/' + folder + '/' + file_name, "rb") as infile:
+        return pickle.load(infile)     
 
 ####Example: how to call the inference function
-top_concepts = predict(student_map, model, concept_to_idx, idx_to_concept)
+# top_concepts = predict(student_map, model, concept_to_idx, idx_to_concept)
 
