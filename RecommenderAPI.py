@@ -56,9 +56,9 @@ def validate_json(json_data, spec):
 
         
 def do_training(concept_maps_as_json, service_name):
-    concepmaps = collect_data(concept_maps_as_json)
+    concepmaps = convert_json_to_df(concept_maps_as_json)
     concepmaps = concepmaps[['title', 'conceptId']] #concepmaps
-    data = collect_data(concept_maps_as_json)
+    data = convert_json_to_df(concept_maps_as_json)
     data= data[['ConceptMapID','conceptId']]
     data['rating'] = 5
     data, mapping, inverse_mapping = map_column(data, col_name="conceptId")
@@ -369,18 +369,3 @@ class Recommender(pl.LightningModule):
             "lr_scheduler": scheduler,
             "monitor": "valid_loss",
         }
-
-
-
-def train():
-    if request.is_json:
-        data = request.get_json()
-        valid, msg = validate_json(data, 'Multiple-Concept-Maps-Recommender.spec.json')
-
-        if not valid:
-            return {"Error": "JSON request does not represent Concept Map(s):\n" + msg}, 415 # 415 means Unsupported media type
-
-        # Do further stuff with json data
-        return "Model updated", 201 # 201 means something was created
-    return {"Error": "Request must be JSON"}, 415 # 415 means Unsupported media type
-

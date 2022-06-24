@@ -1,0 +1,14 @@
+###### Requirements for Recommendation ######
+numpy
+pandas
+pytorch_lightning
+IPython
+
+###### Requirements for Serializing Data ######
+pickle-mixin
+pathlib
+
+###### Requirements for Web Service ######
+flask
+jsonschema
+flask-restx
