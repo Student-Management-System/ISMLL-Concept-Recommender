@@ -1,7 +1,7 @@
 #!/bin/bash
 PORT=5000
 
-pip install -r requirements
+pip install -r requirements.txt
 echo "Starting Concept Map Recommener at $PORT"
 echo "See for documentation: http://localhost:$PORT/"
 
