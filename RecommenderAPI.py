@@ -37,6 +37,10 @@ def display_side_by_side(*args):
 warnings.filterwarnings("ignore")
 
 
+
+
+
+
 def hello_world():
     return 'Hello, World!'
 
@@ -52,90 +56,6 @@ def validate_json(json_data, spec):
 
     message = "Given JSON data is Valid"
     return True, message
-
-
-        
-def do_training(concept_maps_as_json, service_name):
-    concepmaps = convert_json_to_df(concept_maps_as_json)
-    concepmaps = concepmaps[['title', 'conceptId']] #concepmaps
-    data = convert_json_to_df(concept_maps_as_json)
-    data= data[['ConceptMapID','conceptId']]
-    data['rating'] = 5
-    data, mapping, inverse_mapping = map_column(data, col_name="conceptId")
-    grp_by_train = data.groupby(by="ConceptMapID")
-    random.sample(list(grp_by_train.groups), k=10)
-    model = Recommender(
-        vocab_size=len(mapping) + 2,
-        lr=1e-4,
-        dropout=0.3,
-    )
-    model.eval()
-    concept_to_idx = {a: mapping[b] for a, b in zip(concepmaps.title.tolist(), concepmaps.conceptId.tolist()) if b in mapping}
-    idx_to_concept = {v: k for k, v in concept_to_idx.items()}
-    
-  
-    
-    # Save the models
-    folder = 'models/' + service_name
-    Path(folder).mkdir(parents=True, exist_ok=True)
-    store(model, "model", folder)
-    store(concept_to_idx, "concept_to_idx", folder)
-    store(idx_to_concept, "idx_to_concept", folder)
-
-def store(data, file_name, folder):
-    with open(folder + '/' + file_name, "wb") as outfile:
-        # "wb" argument opens the file in binary mode
-        pickle.dump(data, outfile)        
-        
-        
-def convert_json_to_df(data):
-    """This function convert JSON to DataFrame
-    
-       param: json_file:
-       return: Final Dataframe.
-    """
-    
-    conceptmap, users, conceptmaps_list, users_list, final_list, final_list2 = ([] for i in range(6))
-    for i in data:
-        d = i['conceptmap_id']
-        s = i['user_id']
-        conceptmap.append(d)
-        users.append(s)
-    my_list = ['map_id'] * len(conceptmap)
-    my_list2 = ['user_id'] * len(conceptmap)
-    for f, b in zip(conceptmap, my_list):
-        f = [f]
-        b = [b]
-        intial = dict(zip(b, f))
-        conceptmaps_list.append(intial) 
-    for f, b in zip(users, my_list2):
-        f = [f]
-        b = [b]
-        intial = dict(zip(b, f))
-        users_list.append(intial)
-    for f, b in zip(conceptmaps_list, data):
-        i = b['concepts']
-        result = [dict(item, **f) for item in i]
-        for f in result:
-            final_list.append(f) 
-    for f, b in zip(users_list, data):
-        i = b['concepts']
-        result = [dict(item, **f) for item in i]
-        for f in result:
-            final_list2.append(f)
-    df1 = pd.DataFrame(final_list)
-    df2 = pd.DataFrame(final_list2)
-    result = pd.concat([df1, df2], axis=1)
-    result = result.loc[:,~result.columns.duplicated()].copy()
-    result = result.drop(columns=[ 'timestamp'])
-    result.rename(columns={'id': 'conceptId', 'name': 'title',  'map_id' :'ConceptMapID'}, inplace=True)
-    data = result[['conceptId', 'ConceptMapID', 'title']]
-    data['idx'] = data.groupby(['conceptId'], sort=False).ngroup()
-    data = data.drop('conceptId', 1)
-    data = data.rename(columns={'idx': 'conceptId'})
-    return data
-
-
 
 PAD = 0
 MASK = 1
@@ -215,8 +135,6 @@ def df_to_np(df, expected_size=5):
     arr = np.array(df)
     arr = pad_arr(arr, expected_size=expected_size)
     return arr
-
-
 
 def masked_accuracy(y_pred: torch.Tensor, y_true: torch.Tensor, mask: torch.Tensor):
 
@@ -368,3 +286,99 @@ class Recommender(pl.LightningModule):
             "lr_scheduler": scheduler,
             "monitor": "valid_loss",
         }
+
+
+        
+def do_training(concept_maps_as_json, service_name):
+    concepmaps = convert_json_to_df(concept_maps_as_json)
+    concepmaps = concepmaps[['title', 'conceptId']] #concepmaps
+    data = convert_json_to_df(concept_maps_as_json)
+    data= data[['ConceptMapID','conceptId']]
+    data['rating'] = 5
+    data, mapping, inverse_mapping = map_column(data, col_name="conceptId")
+    grp_by_train = data.groupby(by="ConceptMapID")
+    random.sample(list(grp_by_train.groups), k=10)
+    model = Recommender(
+        vocab_size=len(mapping) + 2,
+        lr=1e-4,
+        dropout=0.3,
+    )
+    model.eval()
+    concept_to_idx = {a: mapping[b] for a, b in zip(concepmaps.title.tolist(), concepmaps.conceptId.tolist()) if b in mapping}
+    idx_to_concept = {v: k for k, v in concept_to_idx.items()}
+    
+  
+    
+    # Save the models
+    folder = 'models/' + service_name
+    Path(folder).mkdir(parents=True, exist_ok=True)
+    store(model, "model", folder)
+    store(concept_to_idx, "concept_to_idx", folder)
+    store(idx_to_concept, "idx_to_concept", folder)
+
+def store(data, file_name, folder):
+    with open(folder + '/' + file_name, "wb") as outfile:
+        # "wb" argument opens the file in binary mode
+        pickle.dump(data, outfile)        
+        
+        
+def convert_json_to_df(data):
+    """This function convert JSON to DataFrame
+    
+       param: json_file:
+       return: Final Dataframe.
+    """
+    
+    conceptmap, users, conceptmaps_list, users_list, final_list, final_list2 = ([] for i in range(6))
+    for i in data:
+        d = i['conceptmap_id']
+        s = i['user_id']
+        conceptmap.append(d)
+        users.append(s)
+    my_list = ['map_id'] * len(conceptmap)
+    my_list2 = ['user_id'] * len(conceptmap)
+    for f, b in zip(conceptmap, my_list):
+        f = [f]
+        b = [b]
+        intial = dict(zip(b, f))
+        conceptmaps_list.append(intial) 
+    for f, b in zip(users, my_list2):
+        f = [f]
+        b = [b]
+        intial = dict(zip(b, f))
+        users_list.append(intial)
+    for f, b in zip(conceptmaps_list, data):
+        i = b['concepts']
+        result = [dict(item, **f) for item in i]
+        for f in result:
+            final_list.append(f) 
+    for f, b in zip(users_list, data):
+        i = b['concepts']
+        result = [dict(item, **f) for item in i]
+        for f in result:
+            final_list2.append(f)
+    df1 = pd.DataFrame(final_list)
+    df2 = pd.DataFrame(final_list2)
+    result = pd.concat([df1, df2], axis=1)
+    result = result.loc[:,~result.columns.duplicated()].copy()
+    result = result.drop(columns=[ 'timestamp'])
+    result.rename(columns={'id': 'conceptId', 'name': 'title',  'map_id' :'ConceptMapID'}, inplace=True)
+    data = result[['conceptId', 'ConceptMapID', 'title']]
+    #data.rename(columns={'title':'concepts'}, inplace=True)
+    data['idx'] = data.groupby(['conceptId'], sort=False).ngroup()
+    data = data.drop('conceptId', 1)
+    data = data.rename(columns={'idx': 'conceptId'})
+    return data
+
+
+def train():
+    if request.is_json:
+        data = request.get_json()
+        valid, msg = validate_json(data, 'Multiple-Concept-Maps-Recommender.spec.json')
+
+        if not valid:
+            return {"Error": "JSON request does not represent Concept Map(s):\n" + msg}, 415 # 415 means Unsupported media type
+
+        # Do further stuff with json data
+        return "Model updated", 201 # 201 means something was created
+    return {"Error": "Request must be JSON"}, 415 # 415 means Unsupported media type
