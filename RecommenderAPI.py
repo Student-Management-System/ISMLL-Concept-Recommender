@@ -130,7 +130,6 @@ def convert_json_to_df(data):
     result = result.drop(columns=[ 'timestamp'])
     result.rename(columns={'id': 'conceptId', 'name': 'title',  'map_id' :'ConceptMapID'}, inplace=True)
     data = result[['conceptId', 'ConceptMapID', 'title']]
-    data.rename(columns={'title':'concepts'}, inplace=True)
     data['idx'] = data.groupby(['conceptId'], sort=False).ngroup()
     data = data.drop('conceptId', 1)
     data = data.rename(columns={'idx': 'conceptId'})
