@@ -16,13 +16,9 @@ def do_prediction(student_map, service_name):
 
 def predict(student_map, model, concept_to_idx, idx_to_concept):
     
-    d = open(student_map)
-    testdata = json.load(d)
-    
-    list_concepmaps =list()
-    for i in testdata:
-        for f in i['concepts']:
-            list_concepmaps.append(f['name'])
+    list_concepmaps = list()
+    for f in student_map['concepts']:
+        list_concepmaps.append(f['name'])
             
     ids = [PAD] * (120 - len(list_concepmaps) - 1) + [concept_to_idx[a] for a in list_concepmaps] + [MASK]
     

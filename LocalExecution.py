@@ -16,11 +16,9 @@ def do_training():
  
 def do_prediction():
     print('Load Sample data')
-    f = open("recommender.json")
+    f = open("test_recommendation_query.json")
     print('Convert Sample data to JSON')
-    data = json.load(f)
-    print('Select first item')
-    concept_map = data[0]
+    concept_map = json.load(f)
     print('Do Prediction')
     start_time = time.time()
     result = inference.do_prediction(concept_map, "local_example")
