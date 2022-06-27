@@ -103,7 +103,7 @@ class Training(Resource):
 @ns.route('/prediction/<string:model_id>')
 class Prediction(Resource):
     @ns.expect(prediction_dto, validate=True)
-    def get(self, model_id):
+    def post(self, model_id):
         if request.is_json:
             data = request.get_json()
             
