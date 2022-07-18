@@ -1,27 +1,27 @@
 import json
 import time
-import RecommenderAPI
-import inference
+import concept_map_recommender_training_api
+import concept_map_recommender_inference_api
 
 def do_training():
     print('Load Sample data')
-    f = open("recommender.json")
+    f = open("testdata/concept_map_export.json")
     print('Convert Sample data to JSON')
     data = json.load(f)
     print('Do Training')
     start_time = time.time()
-    RecommenderAPI.do_training(data, "local_example")
+    concept_map_recommender_training_api.do_training(data, "local_example")
     print("Training done in %s seconds" % (time.time() - start_time))
     
  
 def do_prediction():
     print('Load Sample data')
-    f = open("test_recommendation_query.json")
+    f = open("testdata/concept_map_recommendation_query.json")
     print('Convert Sample data to JSON')
     concept_map = json.load(f)
     print('Do Prediction')
     start_time = time.time()
-    result = inference.do_prediction(concept_map, "local_example")
+    result = concept_map_recommender_inference_api.do_prediction(concept_map, "local_example")
     print("Prediction done in %s seconds" % (time.time() - start_time))
     print('Result is:', str(result))
  

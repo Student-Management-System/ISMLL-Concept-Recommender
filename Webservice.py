@@ -6,12 +6,13 @@ from flask import Flask, request
 import json, jsonschema
 from jsonschema import validate
 from flask_restx import Api, Resource, fields
-import RecommenderAPI
-import inference
+import concept_map_recommender_training_api
+import concept_map_recommender_inference_api
 
 flask_app = Flask(__name__)
-app = Api(app = flask_app, version='0.1', title='ISMLL Concept Recommender', description='Web service recommender that suggests new concepts when students stuck while creating a concept map.')
-ns = app.namespace('Concept Maps Recommender', path='/concept_recommender', description='Main APIs')
+app = Api(app = flask_app, version='0.2', title='ISMLL Quality+ Recommenders', description='Web service recommenders of the Quality+ project. Concept Map Recommender suggests new concepts when students stuck while creating a concept map. Group recommender suggest new partners for groups that do not fullfill the group requirements.')
+cmr = app.namespace('Concept Maps Recommender', path='/concept_recommender', description='APIs for the Concept Map Recommender')
+gr  = app.namespace('Group Recommender', path='/group_recommender', description='APIs for the Group Recommender')
 
 prediction_request_schema = {
     'type': 'object',
@@ -84,28 +85,28 @@ training_request_schema = {
 training_dto = app.schema_model('Multiple Concept Maps DTO', training_request_schema)
 prediction_dto = app.schema_model('Single Concept Maps DTO', prediction_request_schema)
 
-@ns.route('/hello_world')
+@cmr.route('/hello_world')
 class Hello(Resource):
     def get(self, **kwargs):
-        return RecommenderAPI.hello_world()
+        return concept_map_recommender_training_api.hello_world()
       
-@ns.route('/training/<string:model_id>')
+@cmr.route('/training/<string:model_id>')
 class Training(Resource):
-    @ns.expect(training_dto, validate=True)
+    @cmr.expect(training_dto, validate=True)
     def post(self, model_id):
         if request.is_json:
             data = request.get_json()
             
-            RecommenderAPI.do_training(data, model_id)
+            concept_map_recommender_training_api.do_training(data, model_id)
             return "Model updated", 201 # 201 means something was created
         return {"Error": "Request must be JSON"}, 415 # 415 means Unsupported media type
         
-@ns.route('/prediction/<string:model_id>')
+@cmr.route('/prediction/<string:model_id>')
 class Prediction(Resource):
-    @ns.expect(prediction_dto, validate=True)
+    @cmr.expect(prediction_dto, validate=True)
     def post(self, model_id):
         if request.is_json:
             data = request.get_json()
             
-            return inference.do_prediction(data, model_id), 200
+            return concept_map_recommender_inference_api.do_prediction(data, model_id), 200
         return {"Error": "Request must be JSON"}, 415 # 415 means Unsupported media type

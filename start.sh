@@ -1,7 +1,7 @@
 #!/bin/bash
 PORT=5000
 
-echo "Starting Concept Map Recommener at $PORT"
+echo "Starting ISMLL Recommener at $PORT"
 echo "See for documentation: http://localhost:$PORT/"
 
 export FLASK_APP=Webservice.py

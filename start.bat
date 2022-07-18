@@ -1,6 +1,6 @@
 set PORT=5000
 
-echo "Starting Concept Map Recommener at %PORT%"
+echo "Starting ISMLL Recommener at %PORT%"
 echo "See for documentation: http://localhost:%PORT%/"
 
 
