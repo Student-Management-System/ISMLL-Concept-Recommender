@@ -8,11 +8,12 @@ from jsonschema import validate
 from flask_restx import Api, Resource, fields
 import concept_map_recommender_training_api
 import concept_map_recommender_inference_api
+import group_recommender_batch_api
 
 flask_app = Flask(__name__)
 app = Api(app = flask_app, version='0.2', title='ISMLL Quality+ Recommenders', description='Web service recommenders of the Quality+ project. Concept Map Recommender suggests new concepts when students stuck while creating a concept map. Group recommender suggest new partners for groups that do not fullfill the group requirements.')
+
 cmr = app.namespace('Concept Maps Recommender', path='/concept_recommender', description='APIs for the Concept Map Recommender')
-gr  = app.namespace('Group Recommender', path='/group_recommender', description='APIs for the Group Recommender')
 
 prediction_request_schema = {
     'type': 'object',
@@ -91,7 +92,7 @@ class Hello(Resource):
         return concept_map_recommender_training_api.hello_world()
       
 @cmr.route('/training/<string:model_id>')
-class Training(Resource):
+class Concept_Map_Training(Resource):
     @cmr.expect(training_dto, validate=True)
     def post(self, model_id):
         if request.is_json:
@@ -102,11 +103,34 @@ class Training(Resource):
         return {"Error": "Request must be JSON"}, 415 # 415 means Unsupported media type
         
 @cmr.route('/prediction/<string:model_id>')
-class Prediction(Resource):
+class Concept_Map_Prediction(Resource):
     @cmr.expect(prediction_dto, validate=True)
     def post(self, model_id):
         if request.is_json:
             data = request.get_json()
             
             return concept_map_recommender_inference_api.do_prediction(data, model_id), 200
+        return {"Error": "Request must be JSON"}, 415 # 415 means Unsupported media type
+   
+   
+gr  = app.namespace('Group Recommender', path='/group_recommender', description='APIs for the Group Recommender')
+
+group_recommendation_request_schema = {
+    'type': 'object',
+    'properties': {
+        'course': {'type': 'object'},
+    },
+    'required': ['course'],
+}
+
+group_dto = app.schema_model('Group Recommendation DTO', group_recommendation_request_schema)
+  
+@gr.route('/nn')
+class Group_NN_Prediction(Resource):
+    @gr.expect(group_dto, validate=False)
+    def post(self):
+        if request.is_json:
+            data = request.get_json()
+            
+            return group_recommender_batch_api.group_recommendation_with_neuronal_network(data), 200
         return {"Error": "Request must be JSON"}, 415 # 415 means Unsupported media type

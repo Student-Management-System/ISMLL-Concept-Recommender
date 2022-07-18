@@ -37,7 +37,7 @@ def predict(student_map, model, concept_to_idx, idx_to_concept):
 
 
 def load(file_name, folder):
-    with open('models/' + folder + '/' + file_name, "rb") as infile:
+    with open('models/concept_maps/' + folder + '/' + file_name, "rb") as infile:
         return pickle.load(infile)     
 
 ####Example: how to call the inference function

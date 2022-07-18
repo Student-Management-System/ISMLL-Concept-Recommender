@@ -294,7 +294,7 @@ def do_training(concept_maps_as_json, service_name):
   
     
     # Save the models
-    folder = 'models/' + service_name
+    folder = 'models/concept_maps' + service_name
     Path(folder).mkdir(parents=True, exist_ok=True)
     store(model, "model", folder)
     store(concept_to_idx, "concept_to_idx", folder)

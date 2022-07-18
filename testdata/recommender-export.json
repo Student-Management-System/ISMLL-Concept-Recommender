@@ -1,0 +1,2651 @@
+{
+    "course": {
+        "id": "java-wise1920",
+        "shortname": "java",
+        "semester": "wise1920",
+        "title": "Programmierpraktikum I: Java",
+        "isClosed": false,
+        "links": [
+            {
+                "name": "Example URL",
+                "url": "http://example-url.com"
+            }
+        ],
+        "admissionCriteria": {
+            "rules": [
+                {
+                    "type": "REQUIRED_PERCENT_OVERALL",
+                    "assignmentType": "HOMEWORK",
+                    "requiredPercent": 50,
+                    "achievedPercentRounding": {
+                        "type": "UP_NEAREST_INTEGER"
+                    }
+                },
+                {
+                    "type": "REQUIRED_PERCENT_OVERALL",
+                    "assignmentType": "TESTAT",
+                    "requiredPercent": 50,
+                    "achievedPercentRounding": {
+                        "type": "DECIMALS",
+                        "decimals": 0
+                    }
+                },
+                {
+                    "type": "INDIVIDUAL_PERCENT_WITH_ALLOWED_FAILURES",
+                    "assignmentType": "HOMEWORK",
+                    "requiredPercent": 50,
+                    "achievedPercentRounding": {
+                        "type": "NONE"
+                    },
+                    "allowedFailures": 2
+                }
+            ]
+        },
+        "groupSettings": {
+            "allowGroups": true,
+            "autoJoinGroupOnCourseJoined": true,
+            "selfmanaged": true,
+            "mergeGroupsOnAssignmentStarted": true,
+            "sizeMin": 3,
+            "sizeMax": 5
+        }
+    },
+    "groups": [
+        {
+            "id": "id-Group 1",
+            "name": "Group 1",
+            "members": [
+                {
+                    "userId": "userId-Student 1",
+                    "displayName": "Student 1",
+                    "username": "Student 1",
+                    "role": "STUDENT"
+                },
+                {
+                    "userId": "userId-Student 2",
+                    "displayName": "Student 2",
+                    "username": "Student 2",
+                    "role": "STUDENT"
+                },
+                {
+                    "userId": "userId-Student 3",
+                    "displayName": "Student 3",
+                    "username": "Student 3",
+                    "role": "STUDENT"
+                }
+            ]
+        },
+        {
+            "id": "id-Group 2",
+            "name": "Group 2",
+            "members": [
+                {
+                    "userId": "userId-Student 4",
+                    "displayName": "Student 4",
+                    "username": "Student 4",
+                    "role": "STUDENT"
+                },
+                {
+                    "userId": "userId-Student 5",
+                    "displayName": "Student 5",
+                    "username": "Student 5",
+                    "role": "STUDENT"
+                },
+                {
+                    "userId": "userId-Student 6",
+                    "displayName": "Student 6",
+                    "username": "Student 6",
+                    "role": "STUDENT"
+                }
+            ]
+        },
+        {
+            "id": "id-Group 3",
+            "name": "Group 3",
+            "members": [
+                {
+                    "userId": "userId-Student 7 (Good)",
+                    "displayName": "Student 7 (Good)",
+                    "username": "Student 7 (Good)",
+                    "role": "STUDENT"
+                },
+                {
+                    "userId": "userId-Student 8 (Bad)",
+                    "displayName": "Student 8 (Bad)",
+                    "username": "Student 8 (Bad)",
+                    "role": "STUDENT"
+                }
+            ]
+        },
+        {
+            "id": "id-Group 4",
+            "name": "Group 4",
+            "members": [
+                {
+                    "userId": "userId-Student 9 (Very Good)",
+                    "displayName": "Student 9 (Very Good)",
+                    "username": "Student 9 (Very Good)",
+                    "role": "STUDENT"
+                },
+                {
+                    "userId": "userId-Student 10 (Good)",
+                    "displayName": "Student 10 (Good)",
+                    "username": "Student 10 (Good)",
+                    "role": "STUDENT"
+                }
+            ]
+        },
+        {
+            "id": "id-Group 5",
+            "name": "Group 5",
+            "members": [
+                {
+                    "userId": "userId-Student 11 (Very Good)",
+                    "displayName": "Student 11 (Very Good)",
+                    "username": "Student 11 (Very Good)",
+                    "role": "STUDENT"
+                }
+            ]
+        },
+        {
+            "id": "id-Group 6",
+            "name": "Group 6",
+            "members": [
+                {
+                    "userId": "userId-Student 12 (Good)",
+                    "displayName": "Student 12 (Good)",
+                    "username": "Student 12 (Good)",
+                    "role": "STUDENT"
+                }
+            ]
+        },
+        {
+            "id": "id-Group 7",
+            "name": "Group 7",
+            "members": [
+                {
+                    "userId": "userId-Student 13 (Bad)",
+                    "displayName": "Student 13 (Bad)",
+                    "username": "Student 13 (Bad)",
+                    "role": "STUDENT"
+                }
+            ]
+        },
+        {
+            "id": "id-Group 8",
+            "name": "Group 8",
+            "members": [
+                {
+                    "userId": "userId-Student 14 (Very Bad)",
+                    "displayName": "Student 14 (Very Bad)",
+                    "username": "Student 14 (Very Bad)",
+                    "role": "STUDENT"
+                }
+            ]
+        }
+    ],
+    "assignments": [
+        {
+            "id": "homework-01",
+            "name": "Homework 01",
+            "points": 100,
+            "collaboration": "GROUP",
+            "type": "HOMEWORK",
+            "state": "EVALUATED",
+            "endDate": "2022-01-31T23:00:00.000Z"
+        },
+        {
+            "id": "homework-02",
+            "name": "Homework 02",
+            "points": 100,
+            "collaboration": "GROUP",
+            "type": "HOMEWORK",
+            "state": "EVALUATED",
+            "endDate": "2022-02-06T23:00:00.000Z"
+        },
+        {
+            "id": "testat-03",
+            "name": "testat 03",
+            "points": 100,
+            "collaboration": "SINGLE",
+            "type": "TESTAT",
+            "state": "EVALUATED",
+            "endDate": "2022-02-13T23:00:00.000Z"
+        },
+        {
+            "id": "homework-03",
+            "name": "Homework 03",
+            "points": 100,
+            "collaboration": "GROUP",
+            "type": "HOMEWORK",
+            "state": "EVALUATED",
+            "endDate": "2022-02-20T23:00:00.000Z"
+        }
+    ],
+    "groupsForAssignment": [
+        {
+            "assignmentId": "homework-01",
+            "groups": [
+                {
+                    "id": "id-Group 1",
+                    "name": "Group 1",
+                    "members": [
+                        {
+                            "userId": "userId-Student 1",
+                            "displayName": "Student 1",
+                            "username": "Student 1",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 2",
+                            "displayName": "Student 2",
+                            "username": "Student 2",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 3",
+                            "displayName": "Student 3",
+                            "username": "Student 3",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 11 (Very Good)",
+                            "displayName": "Student 11 (Very Good)",
+                            "username": "Student 11 (Very Good)",
+                            "role": "STUDENT"
+                        }
+                    ]
+                },
+                {
+                    "id": "id-Group 2",
+                    "name": "Group 2",
+                    "members": [
+                        {
+                            "userId": "userId-Student 4",
+                            "displayName": "Student 4",
+                            "username": "Student 4",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 5",
+                            "displayName": "Student 5",
+                            "username": "Student 5",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 6",
+                            "displayName": "Student 6",
+                            "username": "Student 6",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 7 (Good)",
+                            "displayName": "Student 7 (Good)",
+                            "username": "Student 7 (Good)",
+                            "role": "STUDENT"
+                        }
+                    ]
+                },
+                {
+                    "id": "id-Group 4",
+                    "name": "Group 4",
+                    "members": [
+                        {
+                            "userId": "userId-Student 8 (Bad)",
+                            "displayName": "Student 8 (Bad)",
+                            "username": "Student 8 (Bad)",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 9 (Very Good)",
+                            "displayName": "Student 9 (Very Good)",
+                            "username": "Student 9 (Very Good)",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 10 (Good)",
+                            "displayName": "Student 10 (Good)",
+                            "username": "Student 10 (Good)",
+                            "role": "STUDENT"
+                        }
+                    ]
+                },
+                {
+                    "id": "id-Group 6",
+                    "name": "Group 6",
+                    "members": [
+                        {
+                            "userId": "userId-Student 12 (Good)",
+                            "displayName": "Student 12 (Good)",
+                            "username": "Student 12 (Good)",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 13 (Bad)",
+                            "displayName": "Student 13 (Bad)",
+                            "username": "Student 13 (Bad)",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 14 (Very Bad)",
+                            "displayName": "Student 14 (Very Bad)",
+                            "username": "Student 14 (Very Bad)",
+                            "role": "STUDENT"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "assignmentId": "homework-02",
+            "groups": [
+                {
+                    "id": "id-Group 1",
+                    "name": "Group 1",
+                    "members": [
+                        {
+                            "userId": "userId-Student 1",
+                            "displayName": "Student 1",
+                            "username": "Student 1",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 2",
+                            "displayName": "Student 2",
+                            "username": "Student 2",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 3",
+                            "displayName": "Student 3",
+                            "username": "Student 3",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 11 (Very Good)",
+                            "displayName": "Student 11 (Very Good)",
+                            "username": "Student 11 (Very Good)",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 7 (Good)",
+                            "displayName": "Student 7 (Good)",
+                            "username": "Student 7 (Good)",
+                            "role": "STUDENT"
+                        }
+                    ]
+                },
+                {
+                    "id": "id-Group 2",
+                    "name": "Group 2",
+                    "members": [
+                        {
+                            "userId": "userId-Student 4",
+                            "displayName": "Student 4",
+                            "username": "Student 4",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 5",
+                            "displayName": "Student 5",
+                            "username": "Student 5",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 6",
+                            "displayName": "Student 6",
+                            "username": "Student 6",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 8 (Bad)",
+                            "displayName": "Student 8 (Bad)",
+                            "username": "Student 8 (Bad)",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 9 (Very Good)",
+                            "displayName": "Student 9 (Very Good)",
+                            "username": "Student 9 (Very Good)",
+                            "role": "STUDENT"
+                        }
+                    ]
+                },
+                {
+                    "id": "id-Group 4",
+                    "name": "Group 4",
+                    "members": [
+                        {
+                            "userId": "userId-Student 12 (Good)",
+                            "displayName": "Student 12 (Good)",
+                            "username": "Student 12 (Good)",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 13 (Bad)",
+                            "displayName": "Student 13 (Bad)",
+                            "username": "Student 13 (Bad)",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 14 (Very Bad)",
+                            "displayName": "Student 14 (Very Bad)",
+                            "username": "Student 14 (Very Bad)",
+                            "role": "STUDENT"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "assignmentId": "testat-03",
+            "groups": []
+        },
+        {
+            "assignmentId": "homework-03",
+            "groups": [
+                {
+                    "id": "id-Group 1",
+                    "name": "Group 1",
+                    "members": [
+                        {
+                            "userId": "userId-Student 1",
+                            "displayName": "Student 1",
+                            "username": "Student 1",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 2",
+                            "displayName": "Student 2",
+                            "username": "Student 2",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 3",
+                            "displayName": "Student 3",
+                            "username": "Student 3",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 11 (Very Good)",
+                            "displayName": "Student 11 (Very Good)",
+                            "username": "Student 11 (Very Good)",
+                            "role": "STUDENT"
+                        }
+                    ]
+                },
+                {
+                    "id": "id-Group 2",
+                    "name": "Group 2",
+                    "members": [
+                        {
+                            "userId": "userId-Student 4",
+                            "displayName": "Student 4",
+                            "username": "Student 4",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 5",
+                            "displayName": "Student 5",
+                            "username": "Student 5",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 6",
+                            "displayName": "Student 6",
+                            "username": "Student 6",
+                            "role": "STUDENT"
+                        }
+                    ]
+                },
+                {
+                    "id": "id-Group 4",
+                    "name": "Group 4",
+                    "members": [
+                        {
+                            "userId": "userId-Student 8 (Bad)",
+                            "displayName": "Student 8 (Bad)",
+                            "username": "Student 8 (Bad)",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 9 (Very Good)",
+                            "displayName": "Student 9 (Very Good)",
+                            "username": "Student 9 (Very Good)",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 10 (Good)",
+                            "displayName": "Student 10 (Good)",
+                            "username": "Student 10 (Good)",
+                            "role": "STUDENT"
+                        }
+                    ]
+                },
+                {
+                    "id": "id-Group 6",
+                    "name": "Group 6",
+                    "members": [
+                        {
+                            "userId": "userId-Student 12 (Good)",
+                            "displayName": "Student 12 (Good)",
+                            "username": "Student 12 (Good)",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 13 (Bad)",
+                            "displayName": "Student 13 (Bad)",
+                            "username": "Student 13 (Bad)",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 14 (Very Bad)",
+                            "displayName": "Student 14 (Very Bad)",
+                            "username": "Student 14 (Very Bad)",
+                            "role": "STUDENT"
+                        },
+                        {
+                            "userId": "userId-Student 7 (Good)",
+                            "displayName": "Student 7 (Good)",
+                            "username": "Student 7 (Good)",
+                            "role": "STUDENT"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "students": [
+        {
+            "userInfo": {
+                "userId": "userId-Student 1",
+                "displayName": "Student 1",
+                "username": "Student 1"
+            },
+            "activity": [
+                "2022-01-01T23:00:00.000Z",
+                "2022-01-07T23:00:00.000Z",
+                "2022-01-14T23:00:00.000Z",
+                "2022-01-21T23:00:00.000Z"
+            ],
+            "submissions": [
+                {
+                    "date": "2022-01-01T23:00:00.000Z",
+                    "assignmentId": "homework-01"
+                },
+                {
+                    "date": "2022-01-07T23:00:00.000Z",
+                    "assignmentId": "homework-02"
+                },
+                {
+                    "date": "2022-01-14T23:00:00.000Z",
+                    "assignmentId": "testat-03"
+                }
+            ],
+            "grades": [
+                {
+                    "assignmentId": "homework-01",
+                    "assessmentId": "assessment_homework01_01",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 1",
+                        "name": "Group 1",
+                        "members": [
+                            {
+                                "userId": "userId-Student 1",
+                                "displayName": "Student 1",
+                                "username": "Student 1",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 2",
+                                "displayName": "Student 2",
+                                "username": "Student 2",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 3",
+                                "displayName": "Student 3",
+                                "username": "Student 3",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 11 (Very Good)",
+                                "displayName": "Student 11 (Very Good)",
+                                "username": "Student 11 (Very Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 100
+                },
+                {
+                    "assignmentId": "homework-02",
+                    "assessmentId": "assessment_homework02_01",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 1",
+                        "name": "Group 1",
+                        "members": [
+                            {
+                                "userId": "userId-Student 1",
+                                "displayName": "Student 1",
+                                "username": "Student 1",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 2",
+                                "displayName": "Student 2",
+                                "username": "Student 2",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 3",
+                                "displayName": "Student 3",
+                                "username": "Student 3",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 11 (Very Good)",
+                                "displayName": "Student 11 (Very Good)",
+                                "username": "Student 11 (Very Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 7 (Good)",
+                                "displayName": "Student 7 (Good)",
+                                "username": "Student 7 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 90
+                },
+                {
+                    "assignmentId": "homework-03",
+                    "assessmentId": "assessment_homework03_01",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 1",
+                        "name": "Group 1",
+                        "members": [
+                            {
+                                "userId": "userId-Student 1",
+                                "displayName": "Student 1",
+                                "username": "Student 1",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 2",
+                                "displayName": "Student 2",
+                                "username": "Student 2",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 3",
+                                "displayName": "Student 3",
+                                "username": "Student 3",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 11 (Very Good)",
+                                "displayName": "Student 11 (Very Good)",
+                                "username": "Student 11 (Very Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 100
+                },
+                {
+                    "assignmentId": "testat-03",
+                    "assessmentId": "assessment_testat01_01",
+                    "assignmentType": "TESTAT",
+                    "achievedPointsInPercent": 80
+                }
+            ],
+            "admissionStatus": {
+                "hasAdmission": true,
+                "fulfillsAdmissionCriteria": true,
+                "hasAdmissionFromPreviousSemester": false,
+                "results": [
+                    {
+                        "_assignmentType": "HOMEWORK",
+                        "_rule": "REQUIRED_PERCENT_OVERALL",
+                        "passed": true,
+                        "achievedPercent": 100,
+                        "achievedPoints": 290
+                    }
+                ]
+            }
+        },
+        {
+            "userInfo": {
+                "userId": "userId-Student 2",
+                "displayName": "Student 2",
+                "username": "Student 2"
+            },
+            "activity": [
+                "2022-01-01T23:00:00.000Z",
+                "2022-01-07T23:00:00.000Z",
+                "2022-01-14T23:00:00.000Z",
+                "2022-01-21T23:00:00.000Z"
+            ],
+            "submissions": [
+                {
+                    "date": "2022-01-14T23:00:00.000Z",
+                    "assignmentId": "testat-03"
+                },
+                {
+                    "date": "2022-01-21T23:00:00.000Z",
+                    "assignmentId": "homework-03"
+                }
+            ],
+            "grades": [
+                {
+                    "assignmentId": "homework-01",
+                    "assessmentId": "assessment_homework01_01",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 1",
+                        "name": "Group 1",
+                        "members": [
+                            {
+                                "userId": "userId-Student 1",
+                                "displayName": "Student 1",
+                                "username": "Student 1",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 2",
+                                "displayName": "Student 2",
+                                "username": "Student 2",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 3",
+                                "displayName": "Student 3",
+                                "username": "Student 3",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 11 (Very Good)",
+                                "displayName": "Student 11 (Very Good)",
+                                "username": "Student 11 (Very Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 100
+                },
+                {
+                    "assignmentId": "homework-02",
+                    "assessmentId": "assessment_homework02_01",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 1",
+                        "name": "Group 1",
+                        "members": [
+                            {
+                                "userId": "userId-Student 1",
+                                "displayName": "Student 1",
+                                "username": "Student 1",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 2",
+                                "displayName": "Student 2",
+                                "username": "Student 2",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 3",
+                                "displayName": "Student 3",
+                                "username": "Student 3",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 11 (Very Good)",
+                                "displayName": "Student 11 (Very Good)",
+                                "username": "Student 11 (Very Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 7 (Good)",
+                                "displayName": "Student 7 (Good)",
+                                "username": "Student 7 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 90
+                },
+                {
+                    "assignmentId": "homework-03",
+                    "assessmentId": "assessment_homework03_01",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 1",
+                        "name": "Group 1",
+                        "members": [
+                            {
+                                "userId": "userId-Student 1",
+                                "displayName": "Student 1",
+                                "username": "Student 1",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 2",
+                                "displayName": "Student 2",
+                                "username": "Student 2",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 3",
+                                "displayName": "Student 3",
+                                "username": "Student 3",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 11 (Very Good)",
+                                "displayName": "Student 11 (Very Good)",
+                                "username": "Student 11 (Very Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 100
+                },
+                {
+                    "assignmentId": "testat-03",
+                    "assessmentId": "assessment_testat01_02",
+                    "assignmentType": "TESTAT",
+                    "achievedPointsInPercent": 85
+                }
+            ],
+            "admissionStatus": {
+                "hasAdmission": true,
+                "fulfillsAdmissionCriteria": true,
+                "hasAdmissionFromPreviousSemester": false,
+                "results": [
+                    {
+                        "_assignmentType": "HOMEWORK",
+                        "_rule": "REQUIRED_PERCENT_OVERALL",
+                        "passed": true,
+                        "achievedPercent": 100,
+                        "achievedPoints": 290
+                    }
+                ]
+            }
+        },
+        {
+            "userInfo": {
+                "userId": "userId-Student 3",
+                "displayName": "Student 3",
+                "username": "Student 3"
+            },
+            "activity": [
+                "2022-01-01T23:00:00.000Z",
+                "2022-01-07T23:00:00.000Z",
+                "2022-01-14T23:00:00.000Z",
+                "2022-01-21T23:00:00.000Z"
+            ],
+            "submissions": [
+                {
+                    "date": "2022-01-14T23:00:00.000Z",
+                    "assignmentId": "testat-03"
+                }
+            ],
+            "grades": [
+                {
+                    "assignmentId": "homework-01",
+                    "assessmentId": "assessment_homework01_01",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 1",
+                        "name": "Group 1",
+                        "members": [
+                            {
+                                "userId": "userId-Student 1",
+                                "displayName": "Student 1",
+                                "username": "Student 1",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 2",
+                                "displayName": "Student 2",
+                                "username": "Student 2",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 3",
+                                "displayName": "Student 3",
+                                "username": "Student 3",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 11 (Very Good)",
+                                "displayName": "Student 11 (Very Good)",
+                                "username": "Student 11 (Very Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 100
+                },
+                {
+                    "assignmentId": "homework-02",
+                    "assessmentId": "assessment_homework02_01",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 1",
+                        "name": "Group 1",
+                        "members": [
+                            {
+                                "userId": "userId-Student 1",
+                                "displayName": "Student 1",
+                                "username": "Student 1",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 2",
+                                "displayName": "Student 2",
+                                "username": "Student 2",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 3",
+                                "displayName": "Student 3",
+                                "username": "Student 3",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 11 (Very Good)",
+                                "displayName": "Student 11 (Very Good)",
+                                "username": "Student 11 (Very Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 7 (Good)",
+                                "displayName": "Student 7 (Good)",
+                                "username": "Student 7 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 90
+                },
+                {
+                    "assignmentId": "homework-03",
+                    "assessmentId": "assessment_homework03_01",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 1",
+                        "name": "Group 1",
+                        "members": [
+                            {
+                                "userId": "userId-Student 1",
+                                "displayName": "Student 1",
+                                "username": "Student 1",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 2",
+                                "displayName": "Student 2",
+                                "username": "Student 2",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 3",
+                                "displayName": "Student 3",
+                                "username": "Student 3",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 11 (Very Good)",
+                                "displayName": "Student 11 (Very Good)",
+                                "username": "Student 11 (Very Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 100
+                },
+                {
+                    "assignmentId": "testat-03",
+                    "assessmentId": "assessment_testat01_03",
+                    "assignmentType": "TESTAT",
+                    "achievedPointsInPercent": 80
+                }
+            ],
+            "admissionStatus": {
+                "hasAdmission": true,
+                "fulfillsAdmissionCriteria": true,
+                "hasAdmissionFromPreviousSemester": false,
+                "results": [
+                    {
+                        "_assignmentType": "HOMEWORK",
+                        "_rule": "REQUIRED_PERCENT_OVERALL",
+                        "passed": true,
+                        "achievedPercent": 100,
+                        "achievedPoints": 290
+                    }
+                ]
+            }
+        },
+        {
+            "userInfo": {
+                "userId": "userId-Student 4",
+                "displayName": "Student 4",
+                "username": "Student 4"
+            },
+            "activity": [
+                "2022-01-01T23:00:00.000Z",
+                "2022-01-07T23:00:00.000Z",
+                "2022-01-14T23:00:00.000Z"
+            ],
+            "submissions": [
+                {
+                    "date": "2022-01-01T23:00:00.000Z",
+                    "assignmentId": "homework-01"
+                },
+                {
+                    "date": "2022-01-14T23:00:00.000Z",
+                    "assignmentId": "testat-03"
+                },
+                {
+                    "date": "2022-01-21T23:00:00.000Z",
+                    "assignmentId": "homework-03"
+                }
+            ],
+            "grades": [
+                {
+                    "assignmentId": "homework-01",
+                    "assessmentId": "assessment_homework01_02",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 2",
+                        "name": "Group 2",
+                        "members": [
+                            {
+                                "userId": "userId-Student 4",
+                                "displayName": "Student 4",
+                                "username": "Student 4",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 5",
+                                "displayName": "Student 5",
+                                "username": "Student 5",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 6",
+                                "displayName": "Student 6",
+                                "username": "Student 6",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 7 (Good)",
+                                "displayName": "Student 7 (Good)",
+                                "username": "Student 7 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 90
+                },
+                {
+                    "assignmentId": "homework-02",
+                    "assessmentId": "assessment_homework02_02",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 2",
+                        "name": "Group 2",
+                        "members": [
+                            {
+                                "userId": "userId-Student 4",
+                                "displayName": "Student 4",
+                                "username": "Student 4",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 5",
+                                "displayName": "Student 5",
+                                "username": "Student 5",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 6",
+                                "displayName": "Student 6",
+                                "username": "Student 6",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 8 (Bad)",
+                                "displayName": "Student 8 (Bad)",
+                                "username": "Student 8 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 9 (Very Good)",
+                                "displayName": "Student 9 (Very Good)",
+                                "username": "Student 9 (Very Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 80
+                },
+                {
+                    "assignmentId": "homework-03",
+                    "assessmentId": "assessment_homework03_02",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 2",
+                        "name": "Group 2",
+                        "members": [
+                            {
+                                "userId": "userId-Student 4",
+                                "displayName": "Student 4",
+                                "username": "Student 4",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 5",
+                                "displayName": "Student 5",
+                                "username": "Student 5",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 6",
+                                "displayName": "Student 6",
+                                "username": "Student 6",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 95
+                },
+                {
+                    "assignmentId": "testat-03",
+                    "assessmentId": "assessment_testat01_04",
+                    "assignmentType": "TESTAT",
+                    "achievedPointsInPercent": 70
+                }
+            ],
+            "admissionStatus": {
+                "hasAdmission": true,
+                "fulfillsAdmissionCriteria": true,
+                "hasAdmissionFromPreviousSemester": false,
+                "results": [
+                    {
+                        "_assignmentType": "HOMEWORK",
+                        "_rule": "REQUIRED_PERCENT_OVERALL",
+                        "passed": true,
+                        "achievedPercent": 100,
+                        "achievedPoints": 265
+                    }
+                ]
+            }
+        },
+        {
+            "userInfo": {
+                "userId": "userId-Student 5",
+                "displayName": "Student 5",
+                "username": "Student 5"
+            },
+            "activity": [
+                "2022-01-01T23:00:00.000Z",
+                "2022-01-07T23:00:00.000Z",
+                "2022-01-21T23:00:00.000Z"
+            ],
+            "submissions": [
+                {
+                    "date": "2022-01-07T23:00:00.000Z",
+                    "assignmentId": "homework-02"
+                },
+                {
+                    "date": "2022-01-14T23:00:00.000Z",
+                    "assignmentId": "testat-03"
+                }
+            ],
+            "grades": [
+                {
+                    "assignmentId": "homework-01",
+                    "assessmentId": "assessment_homework01_02",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 2",
+                        "name": "Group 2",
+                        "members": [
+                            {
+                                "userId": "userId-Student 4",
+                                "displayName": "Student 4",
+                                "username": "Student 4",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 5",
+                                "displayName": "Student 5",
+                                "username": "Student 5",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 6",
+                                "displayName": "Student 6",
+                                "username": "Student 6",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 7 (Good)",
+                                "displayName": "Student 7 (Good)",
+                                "username": "Student 7 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 90
+                },
+                {
+                    "assignmentId": "homework-02",
+                    "assessmentId": "assessment_homework02_02",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 2",
+                        "name": "Group 2",
+                        "members": [
+                            {
+                                "userId": "userId-Student 4",
+                                "displayName": "Student 4",
+                                "username": "Student 4",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 5",
+                                "displayName": "Student 5",
+                                "username": "Student 5",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 6",
+                                "displayName": "Student 6",
+                                "username": "Student 6",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 8 (Bad)",
+                                "displayName": "Student 8 (Bad)",
+                                "username": "Student 8 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 9 (Very Good)",
+                                "displayName": "Student 9 (Very Good)",
+                                "username": "Student 9 (Very Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 80
+                },
+                {
+                    "assignmentId": "homework-03",
+                    "assessmentId": "assessment_homework03_02",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 2",
+                        "name": "Group 2",
+                        "members": [
+                            {
+                                "userId": "userId-Student 4",
+                                "displayName": "Student 4",
+                                "username": "Student 4",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 5",
+                                "displayName": "Student 5",
+                                "username": "Student 5",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 6",
+                                "displayName": "Student 6",
+                                "username": "Student 6",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 95
+                },
+                {
+                    "assignmentId": "testat-03",
+                    "assessmentId": "assessment_testat01_05",
+                    "assignmentType": "TESTAT",
+                    "achievedPointsInPercent": 60
+                }
+            ],
+            "admissionStatus": {
+                "hasAdmission": true,
+                "fulfillsAdmissionCriteria": true,
+                "hasAdmissionFromPreviousSemester": false,
+                "results": [
+                    {
+                        "_assignmentType": "HOMEWORK",
+                        "_rule": "REQUIRED_PERCENT_OVERALL",
+                        "passed": true,
+                        "achievedPercent": 100,
+                        "achievedPoints": 265
+                    }
+                ]
+            }
+        },
+        {
+            "userInfo": {
+                "userId": "userId-Student 6",
+                "displayName": "Student 6",
+                "username": "Student 6"
+            },
+            "activity": [
+                "2022-01-01T23:00:00.000Z",
+                "2022-01-07T23:00:00.000Z",
+                "2022-01-14T23:00:00.000Z",
+                "2022-01-21T23:00:00.000Z"
+            ],
+            "submissions": [
+                {
+                    "date": "2022-01-14T23:00:00.000Z",
+                    "assignmentId": "testat-03"
+                }
+            ],
+            "grades": [
+                {
+                    "assignmentId": "homework-01",
+                    "assessmentId": "assessment_homework01_02",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 2",
+                        "name": "Group 2",
+                        "members": [
+                            {
+                                "userId": "userId-Student 4",
+                                "displayName": "Student 4",
+                                "username": "Student 4",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 5",
+                                "displayName": "Student 5",
+                                "username": "Student 5",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 6",
+                                "displayName": "Student 6",
+                                "username": "Student 6",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 7 (Good)",
+                                "displayName": "Student 7 (Good)",
+                                "username": "Student 7 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 90
+                },
+                {
+                    "assignmentId": "homework-02",
+                    "assessmentId": "assessment_homework02_02",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 2",
+                        "name": "Group 2",
+                        "members": [
+                            {
+                                "userId": "userId-Student 4",
+                                "displayName": "Student 4",
+                                "username": "Student 4",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 5",
+                                "displayName": "Student 5",
+                                "username": "Student 5",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 6",
+                                "displayName": "Student 6",
+                                "username": "Student 6",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 8 (Bad)",
+                                "displayName": "Student 8 (Bad)",
+                                "username": "Student 8 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 9 (Very Good)",
+                                "displayName": "Student 9 (Very Good)",
+                                "username": "Student 9 (Very Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 80
+                },
+                {
+                    "assignmentId": "homework-03",
+                    "assessmentId": "assessment_homework03_02",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 2",
+                        "name": "Group 2",
+                        "members": [
+                            {
+                                "userId": "userId-Student 4",
+                                "displayName": "Student 4",
+                                "username": "Student 4",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 5",
+                                "displayName": "Student 5",
+                                "username": "Student 5",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 6",
+                                "displayName": "Student 6",
+                                "username": "Student 6",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 95
+                },
+                {
+                    "assignmentId": "testat-03",
+                    "assessmentId": "assessment_testat01_06",
+                    "assignmentType": "TESTAT",
+                    "achievedPointsInPercent": 65
+                }
+            ],
+            "admissionStatus": {
+                "hasAdmission": true,
+                "fulfillsAdmissionCriteria": true,
+                "hasAdmissionFromPreviousSemester": false,
+                "results": [
+                    {
+                        "_assignmentType": "HOMEWORK",
+                        "_rule": "REQUIRED_PERCENT_OVERALL",
+                        "passed": true,
+                        "achievedPercent": 100,
+                        "achievedPoints": 265
+                    }
+                ]
+            }
+        },
+        {
+            "userInfo": {
+                "userId": "userId-Student 7 (Good)",
+                "displayName": "Student 7 (Good)",
+                "username": "Student 7 (Good)"
+            },
+            "activity": [
+                "2022-01-01T23:00:00.000Z",
+                "2022-01-07T23:00:00.000Z",
+                "2022-01-14T23:00:00.000Z",
+                "2022-01-14T23:00:00.000Z",
+                "2022-01-21T23:00:00.000Z"
+            ],
+            "submissions": [
+                {
+                    "date": "2022-01-01T23:00:00.000Z",
+                    "assignmentId": "homework-01"
+                },
+                {
+                    "date": "2022-01-07T23:00:00.000Z",
+                    "assignmentId": "homework-02"
+                },
+                {
+                    "date": "2022-01-14T23:00:00.000Z",
+                    "assignmentId": "testat-03"
+                },
+                {
+                    "date": "2022-01-21T23:00:00.000Z",
+                    "assignmentId": "homework-03"
+                }
+            ],
+            "grades": [
+                {
+                    "assignmentId": "homework-01",
+                    "assessmentId": "assessment_homework01_02",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 2",
+                        "name": "Group 2",
+                        "members": [
+                            {
+                                "userId": "userId-Student 4",
+                                "displayName": "Student 4",
+                                "username": "Student 4",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 5",
+                                "displayName": "Student 5",
+                                "username": "Student 5",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 6",
+                                "displayName": "Student 6",
+                                "username": "Student 6",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 7 (Good)",
+                                "displayName": "Student 7 (Good)",
+                                "username": "Student 7 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 90
+                },
+                {
+                    "assignmentId": "homework-02",
+                    "assessmentId": "assessment_homework02_01",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 1",
+                        "name": "Group 1",
+                        "members": [
+                            {
+                                "userId": "userId-Student 1",
+                                "displayName": "Student 1",
+                                "username": "Student 1",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 2",
+                                "displayName": "Student 2",
+                                "username": "Student 2",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 3",
+                                "displayName": "Student 3",
+                                "username": "Student 3",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 11 (Very Good)",
+                                "displayName": "Student 11 (Very Good)",
+                                "username": "Student 11 (Very Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 7 (Good)",
+                                "displayName": "Student 7 (Good)",
+                                "username": "Student 7 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 90
+                },
+                {
+                    "assignmentId": "homework-03",
+                    "assessmentId": "assessment_homework03_04",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 6",
+                        "name": "Group 6",
+                        "members": [
+                            {
+                                "userId": "userId-Student 12 (Good)",
+                                "displayName": "Student 12 (Good)",
+                                "username": "Student 12 (Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 13 (Bad)",
+                                "displayName": "Student 13 (Bad)",
+                                "username": "Student 13 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 14 (Very Bad)",
+                                "displayName": "Student 14 (Very Bad)",
+                                "username": "Student 14 (Very Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 7 (Good)",
+                                "displayName": "Student 7 (Good)",
+                                "username": "Student 7 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 50
+                },
+                {
+                    "assignmentId": "testat-03",
+                    "assessmentId": "assessment_testat01_07",
+                    "assignmentType": "TESTAT",
+                    "achievedPointsInPercent": 90
+                }
+            ],
+            "admissionStatus": {
+                "hasAdmission": true,
+                "fulfillsAdmissionCriteria": true,
+                "hasAdmissionFromPreviousSemester": false,
+                "results": [
+                    {
+                        "_assignmentType": "HOMEWORK",
+                        "_rule": "REQUIRED_PERCENT_OVERALL",
+                        "passed": true,
+                        "achievedPercent": 100,
+                        "achievedPoints": 230
+                    }
+                ]
+            }
+        },
+        {
+            "userInfo": {
+                "userId": "userId-Student 8 (Bad)",
+                "displayName": "Student 8 (Bad)",
+                "username": "Student 8 (Bad)"
+            },
+            "activity": [
+                "2022-01-01T23:00:00.000Z"
+            ],
+            "submissions": [
+                {
+                    "date": "2022-01-14T23:00:00.000Z",
+                    "assignmentId": "testat-03"
+                }
+            ],
+            "grades": [
+                {
+                    "assignmentId": "homework-01",
+                    "assessmentId": "assessment_homework01_03",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 4",
+                        "name": "Group 4",
+                        "members": [
+                            {
+                                "userId": "userId-Student 8 (Bad)",
+                                "displayName": "Student 8 (Bad)",
+                                "username": "Student 8 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 9 (Very Good)",
+                                "displayName": "Student 9 (Very Good)",
+                                "username": "Student 9 (Very Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 10 (Good)",
+                                "displayName": "Student 10 (Good)",
+                                "username": "Student 10 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 80
+                },
+                {
+                    "assignmentId": "homework-02",
+                    "assessmentId": "assessment_homework02_02",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 2",
+                        "name": "Group 2",
+                        "members": [
+                            {
+                                "userId": "userId-Student 4",
+                                "displayName": "Student 4",
+                                "username": "Student 4",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 5",
+                                "displayName": "Student 5",
+                                "username": "Student 5",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 6",
+                                "displayName": "Student 6",
+                                "username": "Student 6",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 8 (Bad)",
+                                "displayName": "Student 8 (Bad)",
+                                "username": "Student 8 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 9 (Very Good)",
+                                "displayName": "Student 9 (Very Good)",
+                                "username": "Student 9 (Very Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 80
+                },
+                {
+                    "assignmentId": "homework-03",
+                    "assessmentId": "assessment_homework03_03",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 4",
+                        "name": "Group 4",
+                        "members": [
+                            {
+                                "userId": "userId-Student 8 (Bad)",
+                                "displayName": "Student 8 (Bad)",
+                                "username": "Student 8 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 9 (Very Good)",
+                                "displayName": "Student 9 (Very Good)",
+                                "username": "Student 9 (Very Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 10 (Good)",
+                                "displayName": "Student 10 (Good)",
+                                "username": "Student 10 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 70
+                },
+                {
+                    "assignmentId": "testat-03",
+                    "assessmentId": "assessment_testat01_08",
+                    "assignmentType": "TESTAT",
+                    "achievedPointsInPercent": 55.00000000000001
+                }
+            ],
+            "admissionStatus": {
+                "hasAdmission": true,
+                "fulfillsAdmissionCriteria": true,
+                "hasAdmissionFromPreviousSemester": false,
+                "results": [
+                    {
+                        "_assignmentType": "HOMEWORK",
+                        "_rule": "REQUIRED_PERCENT_OVERALL",
+                        "passed": true,
+                        "achievedPercent": 100,
+                        "achievedPoints": 230
+                    }
+                ]
+            }
+        },
+        {
+            "userInfo": {
+                "userId": "userId-Student 9 (Very Good)",
+                "displayName": "Student 9 (Very Good)",
+                "username": "Student 9 (Very Good)"
+            },
+            "activity": [
+                "2022-01-01T23:00:00.000Z",
+                "2022-01-01T23:00:00.000Z",
+                "2022-01-07T23:00:00.000Z",
+                "2022-01-07T23:00:00.000Z",
+                "2022-01-14T23:00:00.000Z",
+                "2022-01-14T23:00:00.000Z",
+                "2022-01-21T23:00:00.000Z",
+                "2022-01-21T23:00:00.000Z"
+            ],
+            "submissions": [
+                {
+                    "date": "2022-01-01T23:00:00.000Z",
+                    "assignmentId": "homework-01"
+                },
+                {
+                    "date": "2022-01-07T23:00:00.000Z",
+                    "assignmentId": "homework-02"
+                },
+                {
+                    "date": "2022-01-14T23:00:00.000Z",
+                    "assignmentId": "testat-03"
+                }
+            ],
+            "grades": [
+                {
+                    "assignmentId": "homework-01",
+                    "assessmentId": "assessment_homework01_03",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 4",
+                        "name": "Group 4",
+                        "members": [
+                            {
+                                "userId": "userId-Student 8 (Bad)",
+                                "displayName": "Student 8 (Bad)",
+                                "username": "Student 8 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 9 (Very Good)",
+                                "displayName": "Student 9 (Very Good)",
+                                "username": "Student 9 (Very Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 10 (Good)",
+                                "displayName": "Student 10 (Good)",
+                                "username": "Student 10 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 80
+                },
+                {
+                    "assignmentId": "homework-02",
+                    "assessmentId": "assessment_homework02_02",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 2",
+                        "name": "Group 2",
+                        "members": [
+                            {
+                                "userId": "userId-Student 4",
+                                "displayName": "Student 4",
+                                "username": "Student 4",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 5",
+                                "displayName": "Student 5",
+                                "username": "Student 5",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 6",
+                                "displayName": "Student 6",
+                                "username": "Student 6",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 8 (Bad)",
+                                "displayName": "Student 8 (Bad)",
+                                "username": "Student 8 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 9 (Very Good)",
+                                "displayName": "Student 9 (Very Good)",
+                                "username": "Student 9 (Very Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 80
+                },
+                {
+                    "assignmentId": "homework-03",
+                    "assessmentId": "assessment_homework03_03",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 4",
+                        "name": "Group 4",
+                        "members": [
+                            {
+                                "userId": "userId-Student 8 (Bad)",
+                                "displayName": "Student 8 (Bad)",
+                                "username": "Student 8 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 9 (Very Good)",
+                                "displayName": "Student 9 (Very Good)",
+                                "username": "Student 9 (Very Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 10 (Good)",
+                                "displayName": "Student 10 (Good)",
+                                "username": "Student 10 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 70
+                },
+                {
+                    "assignmentId": "testat-03",
+                    "assessmentId": "assessment_testat01_09",
+                    "assignmentType": "TESTAT",
+                    "achievedPointsInPercent": 100
+                }
+            ],
+            "admissionStatus": {
+                "hasAdmission": true,
+                "fulfillsAdmissionCriteria": true,
+                "hasAdmissionFromPreviousSemester": false,
+                "results": [
+                    {
+                        "_assignmentType": "HOMEWORK",
+                        "_rule": "REQUIRED_PERCENT_OVERALL",
+                        "passed": true,
+                        "achievedPercent": 100,
+                        "achievedPoints": 230
+                    }
+                ]
+            }
+        },
+        {
+            "userInfo": {
+                "userId": "userId-Student 10 (Good)",
+                "displayName": "Student 10 (Good)",
+                "username": "Student 10 (Good)"
+            },
+            "activity": [
+                "2022-01-01T23:00:00.000Z",
+                "2022-01-07T23:00:00.000Z",
+                "2022-01-07T23:00:00.000Z",
+                "2022-01-14T23:00:00.000Z",
+                "2022-01-21T23:00:00.000Z"
+            ],
+            "submissions": [
+                {
+                    "date": "2022-01-21T23:00:00.000Z",
+                    "assignmentId": "homework-03"
+                },
+                {
+                    "date": "2022-01-14T23:00:00.000Z",
+                    "assignmentId": "testat-03"
+                }
+            ],
+            "grades": [
+                {
+                    "assignmentId": "homework-01",
+                    "assessmentId": "assessment_homework01_03",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 4",
+                        "name": "Group 4",
+                        "members": [
+                            {
+                                "userId": "userId-Student 8 (Bad)",
+                                "displayName": "Student 8 (Bad)",
+                                "username": "Student 8 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 9 (Very Good)",
+                                "displayName": "Student 9 (Very Good)",
+                                "username": "Student 9 (Very Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 10 (Good)",
+                                "displayName": "Student 10 (Good)",
+                                "username": "Student 10 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 80
+                },
+                {
+                    "assignmentId": "homework-03",
+                    "assessmentId": "assessment_homework03_03",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 4",
+                        "name": "Group 4",
+                        "members": [
+                            {
+                                "userId": "userId-Student 8 (Bad)",
+                                "displayName": "Student 8 (Bad)",
+                                "username": "Student 8 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 9 (Very Good)",
+                                "displayName": "Student 9 (Very Good)",
+                                "username": "Student 9 (Very Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 10 (Good)",
+                                "displayName": "Student 10 (Good)",
+                                "username": "Student 10 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 70
+                },
+                {
+                    "assignmentId": "testat-03",
+                    "assessmentId": "assessment_testat01_10",
+                    "assignmentType": "TESTAT",
+                    "achievedPointsInPercent": 85
+                }
+            ],
+            "admissionStatus": {
+                "hasAdmission": true,
+                "fulfillsAdmissionCriteria": true,
+                "hasAdmissionFromPreviousSemester": false,
+                "results": [
+                    {
+                        "_assignmentType": "HOMEWORK",
+                        "_rule": "REQUIRED_PERCENT_OVERALL",
+                        "passed": true,
+                        "achievedPercent": 100,
+                        "achievedPoints": 150
+                    }
+                ]
+            }
+        },
+        {
+            "userInfo": {
+                "userId": "userId-Student 11 (Very Good)",
+                "displayName": "Student 11 (Very Good)",
+                "username": "Student 11 (Very Good)"
+            },
+            "activity": [
+                "2022-01-01T23:00:00.000Z",
+                "2022-01-01T23:00:00.000Z",
+                "2022-01-07T23:00:00.000Z",
+                "2022-01-07T23:00:00.000Z",
+                "2022-01-07T23:00:00.000Z",
+                "2022-01-14T23:00:00.000Z",
+                "2022-01-14T23:00:00.000Z",
+                "2022-01-14T23:00:00.000Z",
+                "2022-01-21T23:00:00.000Z",
+                "2022-01-21T23:00:00.000Z",
+                "2022-01-21T23:00:00.000Z"
+            ],
+            "submissions": [
+                {
+                    "date": "2022-01-01T23:00:00.000Z",
+                    "assignmentId": "homework-01"
+                },
+                {
+                    "date": "2022-01-07T23:00:00.000Z",
+                    "assignmentId": "homework-02"
+                },
+                {
+                    "date": "2022-01-14T23:00:00.000Z",
+                    "assignmentId": "testat-03"
+                },
+                {
+                    "date": "2022-01-21T23:00:00.000Z",
+                    "assignmentId": "homework-03"
+                }
+            ],
+            "grades": [
+                {
+                    "assignmentId": "homework-01",
+                    "assessmentId": "assessment_homework01_01",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 1",
+                        "name": "Group 1",
+                        "members": [
+                            {
+                                "userId": "userId-Student 1",
+                                "displayName": "Student 1",
+                                "username": "Student 1",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 2",
+                                "displayName": "Student 2",
+                                "username": "Student 2",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 3",
+                                "displayName": "Student 3",
+                                "username": "Student 3",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 11 (Very Good)",
+                                "displayName": "Student 11 (Very Good)",
+                                "username": "Student 11 (Very Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 100
+                },
+                {
+                    "assignmentId": "homework-02",
+                    "assessmentId": "assessment_homework02_01",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 1",
+                        "name": "Group 1",
+                        "members": [
+                            {
+                                "userId": "userId-Student 1",
+                                "displayName": "Student 1",
+                                "username": "Student 1",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 2",
+                                "displayName": "Student 2",
+                                "username": "Student 2",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 3",
+                                "displayName": "Student 3",
+                                "username": "Student 3",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 11 (Very Good)",
+                                "displayName": "Student 11 (Very Good)",
+                                "username": "Student 11 (Very Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 7 (Good)",
+                                "displayName": "Student 7 (Good)",
+                                "username": "Student 7 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 90
+                },
+                {
+                    "assignmentId": "homework-03",
+                    "assessmentId": "assessment_homework03_01",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 1",
+                        "name": "Group 1",
+                        "members": [
+                            {
+                                "userId": "userId-Student 1",
+                                "displayName": "Student 1",
+                                "username": "Student 1",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 2",
+                                "displayName": "Student 2",
+                                "username": "Student 2",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 3",
+                                "displayName": "Student 3",
+                                "username": "Student 3",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 11 (Very Good)",
+                                "displayName": "Student 11 (Very Good)",
+                                "username": "Student 11 (Very Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 100
+                },
+                {
+                    "assignmentId": "testat-03",
+                    "assessmentId": "assessment_testat01_11",
+                    "assignmentType": "TESTAT",
+                    "achievedPointsInPercent": 100
+                }
+            ],
+            "admissionStatus": {
+                "hasAdmission": true,
+                "fulfillsAdmissionCriteria": true,
+                "hasAdmissionFromPreviousSemester": false,
+                "results": [
+                    {
+                        "_assignmentType": "HOMEWORK",
+                        "_rule": "REQUIRED_PERCENT_OVERALL",
+                        "passed": true,
+                        "achievedPercent": 100,
+                        "achievedPoints": 290
+                    }
+                ]
+            }
+        },
+        {
+            "userInfo": {
+                "userId": "userId-Student 12 (Good)",
+                "displayName": "Student 12 (Good)",
+                "username": "Student 12 (Good)"
+            },
+            "activity": [
+                "2022-01-01T23:00:00.000Z",
+                "2022-01-07T23:00:00.000Z",
+                "2022-01-07T23:00:00.000Z",
+                "2022-01-14T23:00:00.000Z",
+                "2022-01-21T23:00:00.000Z",
+                "2022-01-21T23:00:00.000Z"
+            ],
+            "submissions": [
+                {
+                    "date": "2022-01-01T23:00:00.000Z",
+                    "assignmentId": "homework-01"
+                },
+                {
+                    "date": "2022-01-07T23:00:00.000Z",
+                    "assignmentId": "homework-02"
+                },
+                {
+                    "date": "2022-01-14T23:00:00.000Z",
+                    "assignmentId": "testat-03"
+                }
+            ],
+            "grades": [
+                {
+                    "assignmentId": "homework-01",
+                    "assessmentId": "assessment_homework01_04",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 6",
+                        "name": "Group 6",
+                        "members": [
+                            {
+                                "userId": "userId-Student 12 (Good)",
+                                "displayName": "Student 12 (Good)",
+                                "username": "Student 12 (Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 13 (Bad)",
+                                "displayName": "Student 13 (Bad)",
+                                "username": "Student 13 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 14 (Very Bad)",
+                                "displayName": "Student 14 (Very Bad)",
+                                "username": "Student 14 (Very Bad)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 50
+                },
+                {
+                    "assignmentId": "homework-02",
+                    "assessmentId": "assessment_homework02_03",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 4",
+                        "name": "Group 4",
+                        "members": [
+                            {
+                                "userId": "userId-Student 12 (Good)",
+                                "displayName": "Student 12 (Good)",
+                                "username": "Student 12 (Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 13 (Bad)",
+                                "displayName": "Student 13 (Bad)",
+                                "username": "Student 13 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 14 (Very Bad)",
+                                "displayName": "Student 14 (Very Bad)",
+                                "username": "Student 14 (Very Bad)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 60
+                },
+                {
+                    "assignmentId": "homework-03",
+                    "assessmentId": "assessment_homework03_04",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 6",
+                        "name": "Group 6",
+                        "members": [
+                            {
+                                "userId": "userId-Student 12 (Good)",
+                                "displayName": "Student 12 (Good)",
+                                "username": "Student 12 (Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 13 (Bad)",
+                                "displayName": "Student 13 (Bad)",
+                                "username": "Student 13 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 14 (Very Bad)",
+                                "displayName": "Student 14 (Very Bad)",
+                                "username": "Student 14 (Very Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 7 (Good)",
+                                "displayName": "Student 7 (Good)",
+                                "username": "Student 7 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 50
+                },
+                {
+                    "assignmentId": "testat-03",
+                    "assessmentId": "assessment_testat01_12",
+                    "assignmentType": "TESTAT",
+                    "achievedPointsInPercent": 90
+                }
+            ],
+            "admissionStatus": {
+                "hasAdmission": true,
+                "fulfillsAdmissionCriteria": true,
+                "hasAdmissionFromPreviousSemester": false,
+                "results": [
+                    {
+                        "_assignmentType": "HOMEWORK",
+                        "_rule": "REQUIRED_PERCENT_OVERALL",
+                        "passed": true,
+                        "achievedPercent": 100,
+                        "achievedPoints": 160
+                    }
+                ]
+            }
+        },
+        {
+            "userInfo": {
+                "userId": "userId-Student 13 (Bad)",
+                "displayName": "Student 13 (Bad)",
+                "username": "Student 13 (Bad)"
+            },
+            "activity": [
+                "2022-01-01T23:00:00.000Z",
+                "2022-01-21T23:00:00.000Z"
+            ],
+            "submissions": [
+                {
+                    "date": "2022-01-14T23:00:00.000Z",
+                    "assignmentId": "testat-03"
+                }
+            ],
+            "grades": [
+                {
+                    "assignmentId": "homework-01",
+                    "assessmentId": "assessment_homework01_04",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 6",
+                        "name": "Group 6",
+                        "members": [
+                            {
+                                "userId": "userId-Student 12 (Good)",
+                                "displayName": "Student 12 (Good)",
+                                "username": "Student 12 (Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 13 (Bad)",
+                                "displayName": "Student 13 (Bad)",
+                                "username": "Student 13 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 14 (Very Bad)",
+                                "displayName": "Student 14 (Very Bad)",
+                                "username": "Student 14 (Very Bad)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 50
+                },
+                {
+                    "assignmentId": "homework-02",
+                    "assessmentId": "assessment_homework02_03",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 4",
+                        "name": "Group 4",
+                        "members": [
+                            {
+                                "userId": "userId-Student 12 (Good)",
+                                "displayName": "Student 12 (Good)",
+                                "username": "Student 12 (Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 13 (Bad)",
+                                "displayName": "Student 13 (Bad)",
+                                "username": "Student 13 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 14 (Very Bad)",
+                                "displayName": "Student 14 (Very Bad)",
+                                "username": "Student 14 (Very Bad)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 60
+                },
+                {
+                    "assignmentId": "homework-03",
+                    "assessmentId": "assessment_homework03_04",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 6",
+                        "name": "Group 6",
+                        "members": [
+                            {
+                                "userId": "userId-Student 12 (Good)",
+                                "displayName": "Student 12 (Good)",
+                                "username": "Student 12 (Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 13 (Bad)",
+                                "displayName": "Student 13 (Bad)",
+                                "username": "Student 13 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 14 (Very Bad)",
+                                "displayName": "Student 14 (Very Bad)",
+                                "username": "Student 14 (Very Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 7 (Good)",
+                                "displayName": "Student 7 (Good)",
+                                "username": "Student 7 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 50
+                },
+                {
+                    "assignmentId": "testat-03",
+                    "assessmentId": "assessment_testat01_13",
+                    "assignmentType": "TESTAT",
+                    "achievedPointsInPercent": 50
+                }
+            ],
+            "admissionStatus": {
+                "hasAdmission": false,
+                "fulfillsAdmissionCriteria": false,
+                "hasAdmissionFromPreviousSemester": false,
+                "results": [
+                    {
+                        "_assignmentType": "HOMEWORK",
+                        "_rule": "REQUIRED_PERCENT_OVERALL",
+                        "passed": true,
+                        "achievedPercent": 100,
+                        "achievedPoints": 160
+                    }
+                ]
+            }
+        },
+        {
+            "userInfo": {
+                "userId": "userId-Student 14 (Very Bad)",
+                "displayName": "Student 14 (Very Bad)",
+                "username": "Student 14 (Very Bad)"
+            },
+            "activity": [],
+            "submissions": [
+                {
+                    "date": "2022-01-14T23:00:00.000Z",
+                    "assignmentId": "testat-03"
+                }
+            ],
+            "grades": [
+                {
+                    "assignmentId": "homework-01",
+                    "assessmentId": "assessment_homework01_04",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 6",
+                        "name": "Group 6",
+                        "members": [
+                            {
+                                "userId": "userId-Student 12 (Good)",
+                                "displayName": "Student 12 (Good)",
+                                "username": "Student 12 (Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 13 (Bad)",
+                                "displayName": "Student 13 (Bad)",
+                                "username": "Student 13 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 14 (Very Bad)",
+                                "displayName": "Student 14 (Very Bad)",
+                                "username": "Student 14 (Very Bad)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 50
+                },
+                {
+                    "assignmentId": "homework-02",
+                    "assessmentId": "assessment_homework02_03",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 4",
+                        "name": "Group 4",
+                        "members": [
+                            {
+                                "userId": "userId-Student 12 (Good)",
+                                "displayName": "Student 12 (Good)",
+                                "username": "Student 12 (Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 13 (Bad)",
+                                "displayName": "Student 13 (Bad)",
+                                "username": "Student 13 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 14 (Very Bad)",
+                                "displayName": "Student 14 (Very Bad)",
+                                "username": "Student 14 (Very Bad)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 60
+                },
+                {
+                    "assignmentId": "homework-03",
+                    "assessmentId": "assessment_homework03_04",
+                    "assignmentType": "HOMEWORK",
+                    "group": {
+                        "id": "id-Group 6",
+                        "name": "Group 6",
+                        "members": [
+                            {
+                                "userId": "userId-Student 12 (Good)",
+                                "displayName": "Student 12 (Good)",
+                                "username": "Student 12 (Good)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 13 (Bad)",
+                                "displayName": "Student 13 (Bad)",
+                                "username": "Student 13 (Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 14 (Very Bad)",
+                                "displayName": "Student 14 (Very Bad)",
+                                "username": "Student 14 (Very Bad)",
+                                "role": "STUDENT"
+                            },
+                            {
+                                "userId": "userId-Student 7 (Good)",
+                                "displayName": "Student 7 (Good)",
+                                "username": "Student 7 (Good)",
+                                "role": "STUDENT"
+                            }
+                        ]
+                    },
+                    "achievedPointsInPercent": 50
+                },
+                {
+                    "assignmentId": "testat-03",
+                    "assessmentId": "assessment_testat01_14",
+                    "assignmentType": "TESTAT",
+                    "achievedPointsInPercent": 10
+                }
+            ],
+            "admissionStatus": {
+                "hasAdmission": false,
+                "fulfillsAdmissionCriteria": false,
+                "hasAdmissionFromPreviousSemester": false,
+                "results": [
+                    {
+                        "_assignmentType": "HOMEWORK",
+                        "_rule": "REQUIRED_PERCENT_OVERALL",
+                        "passed": true,
+                        "achievedPercent": 100,
+                        "achievedPoints": 160
+                    }
+                ]
+            }
+        }
+    ]
+}

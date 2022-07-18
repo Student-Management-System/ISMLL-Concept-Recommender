@@ -1,5 +1,7 @@
-# ISMLL-Concept-Recommender
-Web service recommender that suggests new concepts when students stuck while creating a concept map.
+# ISMLL Quality+ Recommender
+Recommenders developed by ISMLL for the Quality+ project wrapped into a web service:
+* Concept Map Recommender: Suggests new concepts when students stuck while creating a concept map.
+* Group Recommender: Suggest new groups for student that do not have a group that fullfills the requirements.
 
 ## Prerequisites
 Execute the following command to install required modules:
