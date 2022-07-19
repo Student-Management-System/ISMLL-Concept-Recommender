@@ -17,6 +17,7 @@ pandas
 sklearn
 keras
 tensorflow
+scikit-multilearn==0.24.1
 
 ###### Requirements for Serializing Data ######
 pickle-mixin

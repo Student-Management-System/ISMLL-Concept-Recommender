@@ -119,8 +119,12 @@ group_recommendation_request_schema = {
     'type': 'object',
     'properties': {
         'course': {'type': 'object'},
+        'groups': {'type': 'object'},
+        'assignments': {'type': 'object'},
+        'groupsForAssignment': {'type': 'object'},
+        'students': {'type': 'object'},
     },
-    'required': ['course'],
+    'required': ['course', 'students'],
 }
 
 group_dto = app.schema_model('Group Recommendation DTO', group_recommendation_request_schema)
@@ -133,4 +137,15 @@ class Group_NN_Prediction(Resource):
             data = request.get_json()
             
             return group_recommender_batch_api.group_recommendation_with_neuronal_network(data), 200
+        return {"Error": "Request must be JSON"}, 415 # 415 means Unsupported media type
+
+
+@gr.route('/knearest')
+class Group_kNearestNeighbours_Prediction(Resource):
+    @gr.expect(group_dto, validate=False)
+    def post(self):
+        if request.is_json:
+            data = request.get_json()
+            
+            return group_recommender_batch_api.group_recommendation_with_knearest_neighbours(data), 200
         return {"Error": "Request must be JSON"}, 415 # 415 means Unsupported media type

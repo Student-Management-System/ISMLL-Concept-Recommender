@@ -12,6 +12,8 @@ from itertools import repeat, chain
 import itertools
 import json
 from swagger_client.api_client import ApiClient
+# For Multilabel k Nearest Neighbours
+from skmultilearn.adapt import MLkNN
 
 def read_from_file(json_file='testdata/recommender-export.json'):
     # Opening JSON file
@@ -270,4 +272,34 @@ def group_recommendation_with_neuronal_network(data_as_json):
         print("Student ID : {} , Assigned group : {}".format(key,value))
     #print(my_dict)
     
+    return my_dict
+    
+#######################################
+###                                 ###
+### Multilabel k Nearest Neighbours ###
+###                                 ###
+#######################################
+def get_MLkNN_model(X, y, Xtest):
+    classifier = MLkNN(k=3)
+    # train
+    classifier.fit(X, y)
+    # predict
+    prop = classifier.predict_proba(Xtest)
+    yhat = prop.toarray()
+    return yhat
+    
+def group_recommendation_with_knearest_neighbours(data_as_json):
+    # load training and testing data
+    df, Last, X, y, Xtest = read_data(data_as_json)
+    
+    # evaluate model
+    yhat = get_MLkNN_model(X, y, Xtest)
+    #print(yhat)
+
+    my_dict = assign_to_groups(df, Last, yhat,3)
+    new_dict = create_new_groups(my_dict, 3)
+    my_dict.update(new_dict)
+    for key,value in my_dict.items():
+        print("Student ID : {} , Assigned group : {}".format(key,value))
+        
     return my_dict
