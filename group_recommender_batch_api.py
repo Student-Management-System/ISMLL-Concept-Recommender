@@ -125,10 +125,10 @@ def read_data(json):
     df_groups_ = df_groups_.rename(columns=df_groups_.iloc[0]).drop(df_groups_.index[0])  
     
     df_results = df_results.transpose().reset_index()
-    df_results = df_results.rename(columns=df_results.iloc[0]).drop(df_results.index[0]).iloc[1:]
+    df_results = df_results.rename(columns=df_results.iloc[0]).drop(df_results.index[0])
     
     df_current_groups_ = df_current_groups.transpose().reset_index()
-    df_current_groups_ = df_current_groups_.rename(columns=df_current_groups_.iloc[0]).drop(df_current_groups_.index[0]).iloc[1:]
+    df_current_groups_ = df_current_groups_.rename(columns=df_current_groups_.iloc[0]).drop(df_current_groups_.index[0])
 
     
     #final dataframe
@@ -269,7 +269,7 @@ def group_recommendation_with_neuronal_network(data_as_json):
     my_dict.update(new_dict)
     
     for key,value in my_dict.items():
-        print("Student ID : {} , Assigned group : {}".format(key,value))
+        print("Student ID : {} , Assigned group : {}".format(key,value),  ', NewGROUP:', "New" in value)
     #print(my_dict)
     
     return my_dict
@@ -300,6 +300,6 @@ def group_recommendation_with_knearest_neighbours(data_as_json):
     new_dict = create_new_groups(my_dict, 3)
     my_dict.update(new_dict)
     for key,value in my_dict.items():
-        print("Student ID : {} , Assigned group : {}".format(key,value))
+        print("Student ID : {} , Assigned group : {}".format(key,value),  ', NewGROUP:', "New" in value)
         
     return my_dict
