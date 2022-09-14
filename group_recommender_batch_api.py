@@ -108,9 +108,9 @@ def df_current_group(data, students, groups_dict):
     return df
     
 #read the dataset
-def read_data(json):
+def read_data():
     #Objects
-    data = read_from_json(json)
+    data = read_from_json()
     students = collect_students(data)
     assignments = collect_assignments(data)
     groups_dict = collect_current_groups(data)    
@@ -122,10 +122,16 @@ def read_data(json):
     
     #processing dataframes
     df_groups_ = df_groups.transpose().reset_index()
-    df_groups_ = df_groups_.rename(columns=df_groups_.iloc[0]).drop(df_groups_.index[0])  
+    df_groups_ = df_groups_.rename(columns=df_groups_.iloc[0]).drop(df_groups_.index[0])
+    df_groups_ = df_groups_.astype('category')
+    df_groups_ = pd.get_dummies(df_groups_.iloc[:,1:])
+    #pd.get_dummies(df_groups_, columns=[x for x in df_groups_.iloc[:,1:]])
+    print(df_groups_)
+
     
     df_results = df_results.transpose().reset_index()
     df_results = df_results.rename(columns=df_results.iloc[0]).drop(df_results.index[0])
+    df_results= df_results.astype({col: int for col in df_results.columns[1:]})
     
     df_current_groups_ = df_current_groups.transpose().reset_index()
     df_current_groups_ = df_current_groups_.rename(columns=df_current_groups_.iloc[0]).drop(df_current_groups_.index[0])
@@ -133,23 +139,22 @@ def read_data(json):
     
     #final dataframe
     result = pd.concat([df_groups_, df_results, df_current_groups_], axis=1, join="inner")
-    #print(result)
+    #new
+    result= result.loc[:, ~(result == result.iloc[0]).all()]
     result.columns = [c.replace(' ', '_') for c in result.columns]
     result = result.loc[:,~result.columns.duplicated()]
-    result = result.drop('Group_in_testat_03', 1)
+    
+    #result = result.drop('Group_in_testat_03', 1)
+
+    #result["Current_Group"] = result.apply(lambda x: x["Current_Group"]-1, axis=1)
     result['Current_Group'] = result['Current_Group'].astype('category')
     cat_columns = result.select_dtypes(['category']).columns
     result[cat_columns] = result[cat_columns].apply(lambda x: x.cat.codes)
     g = result.groupby('Current_Group')
     result.loc[g['Current_Group'].transform(lambda x: len(x) < 2).astype(bool), 'Current_Group'] = (np.nan)
-    #print(df)
-    df = result
-    #processing final dataframes   
-    #df['Current_Group'] = df.apply(lambda x: x['Current_Group']-1, axis=1)
-    #transform the categorical variables to dummy variables
-    df = pd.get_dummies(data=df, columns=["Group_in_Homework_01", "Group_in_Homework_02", "Group_in_Homework_03"])   
-    To_be_assigned = df[df['Current_Group'].isna()]
-    Training_Dataset = df.dropna()
+    
+    To_be_assigned = result[result['Current_Group'].isna()]
+    Training_Dataset = result.dropna()
     df2_Tr = Training_Dataset.drop(['Current_Group', 'Assignment'], axis=1) 
     df2_To = To_be_assigned.drop(['Current_Group', 'Assignment'], axis=1)
     df3_Tr = Training_Dataset[['Current_Group']].copy()
@@ -158,6 +163,7 @@ def read_data(json):
     y= df3_Tr.to_numpy()
     Xtest= df2_To.to_numpy()
     return df, To_be_assigned, X, y, Xtest
+
     
     
 ############################################################
@@ -207,10 +213,8 @@ def assign_to_groups(dataset, to_be_assigned, labels, Prefered_Group_size):
     count = dataset.groupby(['Current_Group'], sort=False).size().reset_index(name='Count')
     dic1= pd.Series(count.Count.values,index=count.Current_Group).to_dict()
     dic1 = {int(k):int(v) for k,v in dic1.items()}
-    #print(dic1)
     assigned_labels = np.around(labels, decimals=5, out=None)
     assigned_labels = assigned_labels.tolist()
-    #print(f)
     assigned_groups=list()
     for a in assigned_labels: 
             try:
@@ -219,23 +223,20 @@ def assign_to_groups(dataset, to_be_assigned, labels, Prefered_Group_size):
                 assigned_groups.append(c[0])
             except:
                 pass
-        
+    
     assigned_groups= [x+1 for x in assigned_groups]
-    #print(assigned_groups)
-    assigned = ['Group'+ str(s) for s in assigned_groups]
+ 
+    assigned = ['Group'+ '{}'.format(s) for s in assigned_groups]
     col_one_list = to_be_assigned['Assignment'].tolist()
     my_dict = dict(zip_longest(col_one_list, assigned))  
     return my_dict
-    #for key,value in my_dict.items():
-        #print("Student ID : {} , Assigned group : {}".format(key,value))
-        
+
 def create_new_groups(assigned_groups, Prefered_Group_size):
     keys = [k for k, v in assigned_groups.items() if v == None]
-    #Prefered_Group_size = 3
     res = [keys[i:i+Prefered_Group_size] for i in range(0, len(keys), Prefered_Group_size)]
     indices = [index for index, value in enumerate(res)]
     indices= [x+1 for x in indices]
-    index = ['NewGroup'+ str(s) for s in indices]
+    index = ['NewGroup'+ '{}'.format(s) for s in indices]
     m = list()
     for listElem in res:
         count = len(listElem) 
