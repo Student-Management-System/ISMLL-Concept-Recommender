@@ -245,7 +245,7 @@ def create_new_groups(assigned_groups, Prefered_Group_size):
     new_dict = dict(zip_longest(keys, final_indices))
     return new_dict
     
-def group_recommendation_with_neuronal_network(data_as_json, group_size=3):
+def group_recommendation_with_neuronal_network(data_as_json, Prefered_Group_size=3):
     # load training and testing data
     df, Last, X, y, Xtest = read_data(data_as_json)
     X = np.asarray(X).astype('float32')
@@ -265,8 +265,8 @@ def group_recommendation_with_neuronal_network(data_as_json, group_size=3):
     model.fit(X, y, verbose=0, epochs=100)
     #preferred_group_size = int(input("Enter size: "))
     #Assign students to groups
-    my_dict = assign_to_groups(df, Last, yhat, group_size)
-    new_dict = create_new_groups(my_dict, group_size)
+    my_dict = assign_to_groups(df, Last, yhat, Prefered_Group_size)
+    new_dict = create_new_groups(my_dict, Prefered_Group_size)
     my_dict.update(new_dict)
     
     for key,value in my_dict.items():
@@ -289,7 +289,7 @@ def get_MLkNN_model(X, y, Xtest):
     yhat = prop.toarray()
     return yhat
     
-def group_recommendation_with_knearest_neighbours(data_as_json, group_size=3):
+def group_recommendation_with_knearest_neighbours(data_as_json, Prefered_Group_size=3):
     # load training and testing data
     df, Last, X, y, Xtest = read_data(data_as_json)
     
@@ -297,8 +297,8 @@ def group_recommendation_with_knearest_neighbours(data_as_json, group_size=3):
     yhat = get_MLkNN_model(X, y, Xtest)
     #print(yhat)
 
-    my_dict = assign_to_groups(df, Last, yhat,group_size)
-    new_dict = create_new_groups(my_dict, group_size)
+    my_dict = assign_to_groups(df, Last, yhat,Prefered_Group_size)
+    new_dict = create_new_groups(my_dict, Prefered_Group_size)
     my_dict.update(new_dict)
     for key,value in my_dict.items():
         print("Student ID : {} , Assigned group : {}".format(key,value),  ', NewGROUP:', "New" in value)
