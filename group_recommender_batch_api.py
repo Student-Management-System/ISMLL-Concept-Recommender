@@ -20,7 +20,7 @@ def read_from_file(json_file='testdata/recommender-export.json'):
     f = open(json_file)
     data = json.load(f)
     f.close()
-    
+
     return read_from_json(data)
 
 def read_from_json(data_as_json):
@@ -31,7 +31,7 @@ def read_from_json(data_as_json):
 
         :return: deserialized object.
     """
-    
+
     # Convert to data object
     api_client = ApiClient()
     return api_client._ApiClient__deserialize(data_as_json, 'RExportDto')
@@ -45,12 +45,12 @@ def collect_assignments(data):
     return assignments
 
 def collect_current_groups(data):
-    group_names = [g.name for g in data.groups]   
+    group_names = [g.name for g in data.groups]
     groups_dict = dict.fromkeys(group_names)
-    
+
     for g in data.groups:
         groups_dict[g.name] = [m.username for m in g.members]
-    
+
     return groups_dict
 
 def collect_group_settings(data):
@@ -59,9 +59,9 @@ def collect_group_settings(data):
 def df_submission_results(data, students, assignments):
     columns = ['Assignment', 'Max Points'] + [s[1] for s in students]
     tmp_list = []
-    
+
     for a in assignments:
-        row = [a[1], a[3]]        
+        row = [a[1], a[3]]
         assignment_id = a[0]
         max_points = a[3]
         for s in data.students:
@@ -70,14 +70,14 @@ def df_submission_results(data, students, assignments):
             achieved_points = achieved_percentage * max_points / 100
             row.append(achieved_points)
         tmp_list.append(row)
-            
+
     df = pd.DataFrame(tmp_list, columns=columns)
     return df
 
 def df_group_per_assignment(data, students, assignments):
     columns = ['Assignment'] + [s[1] for s in students]
     tmp_list = []
-    
+
     for a in assignments:
         row = ['Group in ' + a[1]]
         assignment_id = a[0]
@@ -90,36 +90,37 @@ def df_group_per_assignment(data, students, assignments):
             else:
                 row.append('SINGLE')
         tmp_list.append(row)
-        
+
     df = pd.DataFrame(tmp_list, columns=columns)
     return df
 
 def df_current_group(data, students, groups_dict):
     columns = ['Assignment'] + [s[1] for s in students]
     tmp_list = ['Current Group']
-    
+
     for s in students:
         for group_name, members in groups_dict.items():
             if s[1] in members:
                 tmp_list.append(group_name)
                 break;
-     
+
     df = pd.DataFrame(data=[tmp_list], columns=columns)
     return df
-    
+
 #read the dataset
 def read_data():
     #Objects
     data = read_from_json()
     students = collect_students(data)
     assignments = collect_assignments(data)
-    groups_dict = collect_current_groups(data)    
-    
+    groups_dict = collect_current_groups(data)
+    min_group_size, max_group_size = collect_group_settings(data)
+
     # Partial dataframes
     df_results = df_submission_results(data, students, assignments)
     df_groups = df_group_per_assignment(data, students, assignments)
     df_current_groups = df_current_group(data, students, groups_dict)
-    
+
     #processing dataframes
     df_groups_ = df_groups.transpose().reset_index()
     df_groups_ = df_groups_.rename(columns=df_groups_.iloc[0]).drop(df_groups_.index[0])
@@ -128,22 +129,22 @@ def read_data():
     #pd.get_dummies(df_groups_, columns=[x for x in df_groups_.iloc[:,1:]])
     print(df_groups_)
 
-    
+
     df_results = df_results.transpose().reset_index()
     df_results = df_results.rename(columns=df_results.iloc[0]).drop(df_results.index[0])
     df_results= df_results.astype({col: int for col in df_results.columns[1:]})
-    
+
     df_current_groups_ = df_current_groups.transpose().reset_index()
     df_current_groups_ = df_current_groups_.rename(columns=df_current_groups_.iloc[0]).drop(df_current_groups_.index[0])
 
-    
+
     #final dataframe
     result = pd.concat([df_groups_, df_results, df_current_groups_], axis=1, join="inner")
     #new
     result= result.loc[:, ~(result == result.iloc[0]).all()]
     result.columns = [c.replace(' ', '_') for c in result.columns]
     result = result.loc[:,~result.columns.duplicated()]
-    
+
     #result = result.drop('Group_in_testat_03', 1)
 
     #result["Current_Group"] = result.apply(lambda x: x["Current_Group"]-1, axis=1)
@@ -152,20 +153,20 @@ def read_data():
     result[cat_columns] = result[cat_columns].apply(lambda x: x.cat.codes)
     g = result.groupby('Current_Group')
     result.loc[g['Current_Group'].transform(lambda x: len(x) < 2).astype(bool), 'Current_Group'] = (np.nan)
-    
+
     To_be_assigned = result[result['Current_Group'].isna()]
     Training_Dataset = result.dropna()
-    df2_Tr = Training_Dataset.drop(['Current_Group', 'Assignment'], axis=1) 
+    df2_Tr = Training_Dataset.drop(['Current_Group', 'Assignment'], axis=1)
     df2_To = To_be_assigned.drop(['Current_Group', 'Assignment'], axis=1)
     df3_Tr = Training_Dataset[['Current_Group']].copy()
     df3_Tr = pd.get_dummies(data=df3_Tr, columns=['Current_Group'])
     X= df2_Tr.to_numpy()
     y= df3_Tr.to_numpy()
     Xtest= df2_To.to_numpy()
-    return df, To_be_assigned, X, y, Xtest
+    return df, To_be_assigned, X, y, Xtest, min_group_size, max_group_size
 
-    
-    
+
+
 ############################################################
 ###                                                      ###
 ### Multi-Label Classification with Neural network model ###
@@ -179,7 +180,7 @@ def get_model(n_inputs, n_outputs):
     model.add(Dense(n_outputs, activation='sigmoid'))
     model.compile(loss='binary_crossentropy', optimizer='adam')
     return model
-    
+
 # evaluate a model using repeated k-fold cross-validation
 def evaluate_model(X, y, Xtest):
     results = list()
@@ -208,7 +209,7 @@ def evaluate_model(X, y, Xtest):
         # round probabilities to class labels
     yhat = yhat.round()
     return yhat, results
-    
+
 def assign_to_groups(dataset, to_be_assigned, labels, Prefered_Group_size):
     count = dataset.groupby(['Current_Group'], sort=False).size().reset_index(name='Count')
     dic1= pd.Series(count.Count.values,index=count.Current_Group).to_dict()
@@ -216,19 +217,19 @@ def assign_to_groups(dataset, to_be_assigned, labels, Prefered_Group_size):
     assigned_labels = np.around(labels, decimals=5, out=None)
     assigned_labels = assigned_labels.tolist()
     assigned_groups=list()
-    for a in assigned_labels: 
+    for a in assigned_labels:
             try:
-                c = next((i, el) for i, el in enumerate(a) if dic1[i] < Prefered_Group_size)  
+                c = next((i, el) for i, el in enumerate(a) if dic1[i] < Prefered_Group_size)
                 dic1[c[0]] +=1
                 assigned_groups.append(c[0])
             except:
                 pass
-    
+
     assigned_groups= [x+1 for x in assigned_groups]
- 
+
     assigned = ['Group'+ '{}'.format(s) for s in assigned_groups]
     col_one_list = to_be_assigned['Assignment'].tolist()
-    my_dict = dict(zip_longest(col_one_list, assigned))  
+    my_dict = dict(zip_longest(col_one_list, assigned))
     return my_dict
 
 def create_new_groups(assigned_groups, Prefered_Group_size):
@@ -239,15 +240,15 @@ def create_new_groups(assigned_groups, Prefered_Group_size):
     index = ['NewGroup'+ '{}'.format(s) for s in indices]
     m = list()
     for listElem in res:
-        count = len(listElem) 
+        count = len(listElem)
         m.append(count)
     final_indices = list(itertools.chain(*(itertools.repeat(elem, n) for elem, n in zip(index, m))))
     new_dict = dict(zip_longest(keys, final_indices))
     return new_dict
-    
+
 def group_recommendation_with_neuronal_network(data_as_json, Prefered_Group_size=3):
     # load training and testing data
-    df, Last, X, y, Xtest = read_data(data_as_json)
+    df, Last, X, y, Xtest, min_group_size, max_group_size = read_data(data_as_json)
     X = np.asarray(X).astype('float32')
     Xtest = Xtest.astype(np.float)
     # evaluate model
@@ -256,7 +257,7 @@ def group_recommendation_with_neuronal_network(data_as_json, Prefered_Group_size
 
     # summarize performance
     #print('Accuracy: %.3f (%.3f)' % (mean(results), std(results)))
-        
+
     # load dataset
     n_inputs, n_outputs = X.shape[1], y.shape[1]
     # get model
@@ -265,16 +266,16 @@ def group_recommendation_with_neuronal_network(data_as_json, Prefered_Group_size
     model.fit(X, y, verbose=0, epochs=100)
     #preferred_group_size = int(input("Enter size: "))
     #Assign students to groups
-    my_dict = assign_to_groups(df, Last, yhat, Prefered_Group_size)
-    new_dict = create_new_groups(my_dict, Prefered_Group_size)
+    my_dict = assign_to_groups(df, Last, yhat, max_group_size)
+    new_dict = create_new_groups(my_dict, max_group_size)
     my_dict.update(new_dict)
-    
+
     for key,value in my_dict.items():
         print("Student ID : {} , Assigned group : {}".format(key,value),  ', NewGROUP:', "New" in value)
     #print(my_dict)
-    
+
     return my_dict
-    
+
 #######################################
 ###                                 ###
 ### Multilabel k Nearest Neighbours ###
@@ -288,11 +289,11 @@ def get_MLkNN_model(X, y, Xtest):
     prop = classifier.predict_proba(Xtest)
     yhat = prop.toarray()
     return yhat
-    
+
 def group_recommendation_with_knearest_neighbours(data_as_json, Prefered_Group_size=3):
     # load training and testing data
-    df, Last, X, y, Xtest = read_data(data_as_json)
-    
+    df, Last, X, y, Xtest, min_group_size, max_group_size = read_data(data_as_json)
+
     # evaluate model
     yhat = get_MLkNN_model(X, y, Xtest)
     #print(yhat)
@@ -302,5 +303,5 @@ def group_recommendation_with_knearest_neighbours(data_as_json, Prefered_Group_s
     my_dict.update(new_dict)
     for key,value in my_dict.items():
         print("Student ID : {} , Assigned group : {}".format(key,value),  ', NewGROUP:', "New" in value)
-        
+
     return my_dict
