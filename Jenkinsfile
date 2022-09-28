@@ -37,7 +37,7 @@ pipeline {
                 sshagent(credentials: ['Stu-Mgmt_Demo-System']) {
                     sh """
                         ssh -i ~/.ssh/id_rsa_student_mgmt_backend elscha@${env.DEMO_SERVER} <<EOF
-                            cd ~/staging/qualityplus-ismll-recommender/
+                            cd /staging/qualityplus-ismll-recommender/
                             ./recreate.sh
                             exit
                         EOF"""
