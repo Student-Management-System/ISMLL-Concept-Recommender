@@ -27,3 +27,4 @@ pathlib
 flask
 jsonschema
 flask-restx
+Werkzeug==2.1.2
