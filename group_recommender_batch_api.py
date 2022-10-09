@@ -153,7 +153,7 @@ def read_data():
     result[cat_columns] = result[cat_columns].apply(lambda x: x.cat.codes)
     g = result.groupby('Current_Group')
     result.loc[g['Current_Group'].transform(lambda x: len(x) < 2).astype(bool), 'Current_Group'] = (np.nan)
-
+    
     To_be_assigned = result[result['Current_Group'].isna()]
     Training_Dataset = result.dropna()
     df2_Tr = Training_Dataset.drop(['Current_Group', 'Assignment'], axis=1)
@@ -163,7 +163,7 @@ def read_data():
     X= df2_Tr.to_numpy()
     y= df3_Tr.to_numpy()
     Xtest= df2_To.to_numpy()
-    return df, To_be_assigned, X, y, Xtest, min_group_size, max_group_size
+    return result, To_be_assigned, X, y, Xtest, min_group_size, max_group_size
 
 
 
