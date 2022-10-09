@@ -110,7 +110,7 @@ def df_current_group(data, students, groups_dict):
 #read the dataset
 def read_data():
     #Objects
-    data = read_from_json()
+    data = read_from_json(json)
     students = collect_students(data)
     assignments = collect_assignments(data)
     groups_dict = collect_current_groups(data)
