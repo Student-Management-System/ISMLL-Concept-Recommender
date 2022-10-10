@@ -281,8 +281,13 @@ def group_recommendation_with_neuronal_network(data_as_json, Prefered_Group_size
 ### Multilabel k Nearest Neighbours ###
 ###                                 ###
 #######################################
-def get_MLkNN_model(X, y, Xtest):
-    classifier = MLkNN(k=3)
+def get_MLkNN_model(X, y, Xtest, k):
+     """
+         param: Data, Labels, Test data and the number of nearest neighbours
+        
+         return: Predicted Labels.
+    """
+    classifier = MLkNN(k)
     # train
     classifier.fit(X, y)
     # predict
@@ -290,12 +295,13 @@ def get_MLkNN_model(X, y, Xtest):
     yhat = prop.toarray()
     return yhat
 
+    
 def group_recommendation_with_knearest_neighbours(data_as_json, Prefered_Group_size=3):
     # load training and testing data
     df, Last, X, y, Xtest, min_group_size, max_group_size = read_data(data_as_json)
 
     # evaluate model
-    yhat = get_MLkNN_model(X, y, Xtest)
+    yhat = get_MLkNN_model(X, y, Xtest, 3)
     #print(yhat)
 
     my_dict = assign_to_groups(df, Last, yhat,Prefered_Group_size)
