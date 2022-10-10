@@ -108,7 +108,7 @@ def df_current_group(data, students, groups_dict):
     return df
 
 #read the dataset
-def read_data():
+def read_data(data_as_json):
     #Objects
     data = read_from_json(json)
     students = collect_students(data)
@@ -153,7 +153,7 @@ def read_data():
     result[cat_columns] = result[cat_columns].apply(lambda x: x.cat.codes)
     g = result.groupby('Current_Group')
     result.loc[g['Current_Group'].transform(lambda x: len(x) < 2).astype(bool), 'Current_Group'] = (np.nan)
-    
+
     To_be_assigned = result[result['Current_Group'].isna()]
     Training_Dataset = result.dropna()
     df2_Tr = Training_Dataset.drop(['Current_Group', 'Assignment'], axis=1)
