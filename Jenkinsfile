@@ -13,6 +13,12 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Student-Management-System/ISMLL-Concept-Recommender.git'
             }
         }
+        
+        stage('Check') {
+            steps {
+                sh 'python3 -m py_compile *.py'
+            }
+        }
 
         stage('Build') {
             steps {
